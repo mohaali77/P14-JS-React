@@ -34,9 +34,9 @@ export function CreateEmployee() {
                     <label for="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" />
                 </fieldset>
-
                 <Menu />
             </form>
+            <button onclick="saveEmployee()">Save</button>
         </section>
     </>
 }
