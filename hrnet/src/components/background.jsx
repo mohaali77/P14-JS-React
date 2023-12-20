@@ -1,9 +1,9 @@
-import background from '../images/background.png'
-import './header.css'
+import background from '../images/background.jpg'
+import './background.css'
 
-export default function Header() {
+export default function Background() {
     return <>
-        <div>
+        <div className='background-picture'>
             <img src={background} alt="" />
         </div>
     </>
