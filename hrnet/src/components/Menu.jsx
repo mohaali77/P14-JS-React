@@ -1,4 +1,4 @@
-export function Menu() {
+export default function Menu() {
     return <>
         <label for="department">Department</label>
         <select name="department" id="department">
