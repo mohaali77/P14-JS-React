@@ -1,5 +1,7 @@
-export function Header() {
+export default function Header() {
     return <>
-        <header className="title">HRNet</header>
+        <header className="title">
+            <h1>HRNet</h1>
+        </header>
     </>
 }
