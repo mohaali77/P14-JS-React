@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Menu from "../components/Menu";
 
 export function CreateEmployee() {
     return <>
         <section className="container">
-            <a href="employee-list.html">View Current Employees</a>
+            <Link to='/employee-list'>View Current Employees</Link>
             <h2>Create Employee</h2>
             <form action="#" id="create-employee">
                 <label for="first-name">First Name</label>
