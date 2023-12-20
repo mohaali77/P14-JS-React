@@ -1,11 +1,11 @@
-import image from '../images/logo.png'
+import logo from '../images/logo.png'
 import './header.css'
 
 export default function Header() {
     return <>
         <header >
             <h1>HRNet by </h1>
-            <img src={image} alt="" />
+            <img src={logo} alt="" />
         </header>
     </>
 }
