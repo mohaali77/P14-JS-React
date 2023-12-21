@@ -4,7 +4,6 @@ import Menu from "../components/Menu";
 export function CreateEmployee() {
     return <>
         <section className="container">
-            <Link to='/employee-list'>View Current Employees</Link>
             <h2>Create Employee</h2>
             <form action="#" id="create-employee">
                 <label for="first-name">First Name</label>
@@ -37,6 +36,7 @@ export function CreateEmployee() {
                 <Menu />
             </form>
             <button onclick="saveEmployee()">Save</button>
+            <Link to='/employee-list'>View Current Employees</Link>
         </section>
     </>
 }
