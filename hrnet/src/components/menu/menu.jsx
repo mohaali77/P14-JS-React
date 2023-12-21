@@ -1,3 +1,6 @@
+import './style/menu.css'
+
+
 export default function Menu() {
     return <>
         <label for="department">Department</label>

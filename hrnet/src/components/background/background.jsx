@@ -1,5 +1,5 @@
 import background from '../images/background.jpg'
-import './background.css'
+import './style/background.css'
 
 export default function Background() {
     return <>
