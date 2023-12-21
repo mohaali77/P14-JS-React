@@ -1,4 +1,4 @@
-import background from '../images/background.jpg'
+import background from '../..//images/background.jpg'
 import './style/background.css'
 
 export default function Background() {

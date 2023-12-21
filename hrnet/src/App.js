@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { CreateEmployee } from "./pages/CreateEmployee";
-import { EmployeeList } from "./pages/EmployeeList";
+import { CreateEmployee } from "./pages/CreateEmployee/CreateEmployee";
+import { EmployeeList } from "./pages/EmployeeList/EmployeeList";
 
 export default function App() {
   return <Routes>

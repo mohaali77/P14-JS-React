@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Menu from "../components/Menu";
+import Menu from "../../components/menu/menu";
 import './style/CreateEmployee.css'
 
 export function CreateEmployee() {
