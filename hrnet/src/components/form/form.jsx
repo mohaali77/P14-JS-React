@@ -2,6 +2,7 @@ import './style/form.css'
 import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState } from 'react';
+import { DatePicker } from '../date-picker';
 
 export function Form() {
 
@@ -17,15 +18,20 @@ export function Form() {
 
                 <label htmlFor="first-name">First Name</label>
                 <input required type="text" id="first-name" />
+                <p className='errorMsg'>Prénom invalide</p>
 
                 <label htmlFor="last-name">Last Name</label>
                 <input required type="text" id="last-name" />
+                <p className='errorMsg'>Nom invalide</p>
 
                 <label htmlFor="date-of-birth">Date of Birth</label>
-                <input required id="date-of-birth" type="text" />
+                <input required id="date-of-birth" type="date" />
+                <p className='errorMsg'>Date de naissance invalide</p>
 
-                <label htmlFor="start-date">Start Date</label>
-                <input required id="start-date" type="text" />
+
+                <DatePicker htmlFor='start-date' id='start-date' />
+                <DatePicker />
+                <p className='errorMsg'>Date de début invalide</p>
             </fieldset>
 
 
@@ -34,14 +40,18 @@ export function Form() {
 
                 <label htmlFor="street">Street</label>
                 <input required id="street" type="text" />
+                <p className='errorMsg'>Date de début invalide</p>
 
                 <label htmlFor="city">City</label>
                 <input required id="city" type="text" />
+                <p className='errorMsg'>Date de début invalide</p>
 
                 <Menu data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input required id="zip-code" type="number" />
+                <p className='errorMsg'>Date de début invalide</p>
+
             </fieldset>
             <Menu data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
             <button>Add employee</button>
