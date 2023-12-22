@@ -2,7 +2,7 @@ import './style/form.css'
 import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState } from 'react';
-import { DatePicker } from '../date-picker';
+import { DatePicker } from '../date-picker/date-picker';
 
 export function Form() {
 
@@ -24,13 +24,12 @@ export function Form() {
                 <input required type="text" id="last-name" />
                 <p className='errorMsg'>Nom invalide</p>
 
-                <label htmlFor="date-of-birth">Date of Birth</label>
-                <input required id="date-of-birth" type="date" />
+                <DatePicker //labelText='Date of Birth' id='date-of-birth' 
+                />
                 <p className='errorMsg'>Date de naissance invalide</p>
 
-
-                <DatePicker htmlFor='start-date' id='start-date' />
-                <DatePicker />
+                <DatePicker //labelText='Start Date' id='start-date' 
+                />
                 <p className='errorMsg'>Date de début invalide</p>
             </fieldset>
 
