@@ -1,10 +1,17 @@
 import './style/date-picker.css'
+import { Datepicker } from 'react-datepicker'
+import { useState } from 'react'
+import 'react-datepicker/dist/react-datepicker.css'
 
-export function DatePicker({ className, name, id, labelText }) {
+export function DatePicker(//{ id, labelText }
+) {
+    const [selectedDate, setDate] = useState(null)
     return <>
-        <label className={className} htmlFor={id}>
-            {labelText}
-        </label>
-        <input type="date" name={name} id={id} placeholder="jj/mm/aaaa" />
+        <Datepicker selected={selectedDate} onChange={date => setDate(date)} />
     </>
 }
+
+/*<label id={id} htmlFor={id}>
+            {labelText}
+        </label>
+        <input type="date" id={id} placeholder="A" />*/
