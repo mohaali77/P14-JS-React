@@ -3,7 +3,7 @@ import './style/menu.css'
 
 export default function Menu() {
     return <>
-        <label for="department">Department</label>
+        <label className='label-department' for="department">Department</label>
         <select name="department" id="department">
             <option>Sales</option>
             <option>Marketing</option>
