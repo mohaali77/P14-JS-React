@@ -1,16 +1,18 @@
 import './style/menu.css'
 
 
-export default function Menu({ className, name, id, forName, text }) {
+export default function Menu({ className, name, id, forName, text, data }) {
+
+    console.log(data);
 
     return <>
-        <label className={className} for={forName}>{text}</label>
+        <label className={className} htmlFor={forName}>{text}</label>
         <select name={name} id={id}>
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
+            {data.map((data) => (
+                <option key={data.abbreviation} value={data.abbreviation}>
+                    {data.name}
+                </option>
+            ))}
         </select>
     </>
 }
