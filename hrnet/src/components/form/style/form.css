@@ -26,6 +26,12 @@ form label {
 form select {
   height: 21.33px;
 }
+form .errorMsg {
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #000;
+}
 form #department {
   margin-top: 6px;
 }
