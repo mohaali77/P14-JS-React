@@ -37,7 +37,7 @@ export function Form() {
                 </legend>
 
                 <label htmlFor="first-name">First Name</label>
-                <input required type="text" id="first-name" />
+                <input ref={inputFirstName} required type="text" id="first-name" />
                 <p className='errorMsg'>Prénom invalide</p>
 
                 <label htmlFor="last-name">Last Name</label>
