@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import './style/date-picker.css'
 
 export function DatePicker({ id, labelText, ref }) {
@@ -6,7 +5,7 @@ export function DatePicker({ id, labelText, ref }) {
         <label id={id} htmlFor={id}>
             {labelText}
         </label>
-        <input ref={inputDateBirth} type="date" id={id} placeholder="A" />
+        <input ref={ref} type="date" id={id} placeholder="A" />
     </>
 }
 
