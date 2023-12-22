@@ -1,11 +1,11 @@
 import './style/form.css'
 import Menu from "../menu/menu";
-import { statesArray } from '../../data/states';
+import { statesArray, departmentsArray } from '../../data/data';
 import { useState } from 'react';
 
 export function Form() {
     const [dataStates, setDataStates] = useState(statesArray);
-    const [dataDepartments, setDataDepartments] = useState(DepartmentsArray);
+    const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
     return <>
         <form action="" id="create-employee">
