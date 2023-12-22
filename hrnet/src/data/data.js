@@ -51,7 +51,7 @@ export const statesArray = [
     { abbreviation: 'WY', name: 'Wyoming' },
 ];
 
-export const departmentArray = [
+export const departmentsArray = [
     { abbreviation: 'SA', name: 'Sales' },
     { abbreviation: 'MA', name: 'Marketing' },
     { abbreviation: 'EN', name: 'Engineering' },
