@@ -41,10 +41,10 @@ export function Form() {
                 <p className='errorMsg'>Prénom invalide</p>
 
                 <label htmlFor="last-name">Last Name</label>
-                <input required type="text" id="last-name" />
+                <input ref={inputLastName} required type="text" id="last-name" />
                 <p className='errorMsg'>Nom invalide</p>
 
-                <DatePicker labelText='Date of Birth' id='date-of-birth' />
+                <DatePicker ref={inputDateBirth} labelText='Date of Birth' id='date-of-birth' />
                 <p className='errorMsg'>Date de naissance invalide</p>
 
                 <DatePicker labelText='Start Date' id='start-date' />
