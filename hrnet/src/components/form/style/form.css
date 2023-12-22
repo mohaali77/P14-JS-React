@@ -1,1 +1,57 @@
-/*# sourceMappingURL=form.css.map */
+form {
+  background-color: #687f12;
+  padding: 15px 15px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+}
+form .personal-infos {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0px 5px;
+}
+form h2 {
+  text-align: center;
+  width: 100%;
+}
+form label {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+form select {
+  height: 21.33px;
+}
+form #department {
+  margin-top: 6px;
+}
+form .label-department {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+form .address {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0px 5px;
+}
+form button {
+  color: #687f12;
+  font-weight: bold;
+  border-radius: 19px;
+  border: transparent;
+  padding: 9px;
+  font-size: 16px;
+  box-shadow: 1px 2px 2px -1px black;
+  width: 100%;
+  margin: 10px 150px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+form button:hover {
+  transform: scale(1.025);
+}/*# sourceMappingURL=form.css.map */
