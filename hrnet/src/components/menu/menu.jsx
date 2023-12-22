@@ -3,8 +3,6 @@ import './style/menu.css'
 
 export default function Menu({ className, name, id, forName, text, data }) {
 
-    console.log(data);
-
     return <>
         <label className={className} htmlFor={forName}>{text}</label>
         <select name={name} id={id}>
