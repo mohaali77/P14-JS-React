@@ -4,8 +4,8 @@ import './style/header.css'
 export default function Header() {
     return <>
         <header >
-            <h1>HRNet by </h1>
             <img src={logo} alt="Logo de l'entreprise Wealth Health" />
+            <h1>HRNet</h1>
         </header>
     </>
 }
