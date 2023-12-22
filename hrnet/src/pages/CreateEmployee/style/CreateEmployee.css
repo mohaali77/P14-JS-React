@@ -1,1 +1,19 @@
-/*# sourceMappingURL=CreateEmployee.css.map */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+a {
+  margin-top: 30px;
+  font-size: 17px;
+  color: #687f12;
+  text-decoration: none;
+  font-weight: bolder;
+  border-bottom: solid 2px;
+}
+a:hover {
+  transform: scale(1.1);
+}/*# sourceMappingURL=CreateEmployee.css.map */
