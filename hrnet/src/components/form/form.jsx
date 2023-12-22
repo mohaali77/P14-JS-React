@@ -4,6 +4,7 @@ import { statesArray, departmentsArray } from '../../data/data';
 import { useState } from 'react';
 
 export function Form() {
+
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
@@ -14,36 +15,36 @@ export function Form() {
                 <legend>Personal informations
                 </legend>
 
-                <label for="first-name">First Name</label>
+                <label htmlFor="first-name">First Name</label>
                 <input required type="text" id="first-name" />
 
-                <label for="last-name">Last Name</label>
+                <label htmlFor="last-name">Last Name</label>
                 <input required type="text" id="last-name" />
 
-                <label for="date-of-birth">Date of Birth</label>
+                <label htmlFor="date-of-birth">Date of Birth</label>
                 <input required id="date-of-birth" type="text" />
 
-                <label for="start-date">Start Date</label>
+                <label htmlFor="start-date">Start Date</label>
                 <input required id="start-date" type="text" />
             </fieldset>
 
 
-            <fieldset class="address">
+            <fieldset className="address">
                 <legend>Address</legend>
 
-                <label for="street">Street</label>
+                <label htmlFor="street">Street</label>
                 <input required id="street" type="text" />
 
-                <label for="city">City</label>
+                <label htmlFor="city">City</label>
                 <input required id="city" type="text" />
 
-                <Menu data={dataStates} text='State' className='label-state' for='state' name='state' id="state" />
+                <Menu data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
 
-                <label for="zip-code">Zip Code</label>
+                <label htmlFor="zip-code">Zip Code</label>
                 <input required id="zip-code" type="number" />
             </fieldset>
-            <Menu data={dataDepartments} text='Department' className='label-department' for='department' name='department' id="department" />
-            <button onclick="saveEmployee()">Add employee</button>
-        </form>
+            <Menu data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
+            <button>Add employee</button>
+        </form >
     </>
 }
