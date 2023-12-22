@@ -6,6 +6,26 @@ import { DatePicker } from '../date-picker/date-picker';
 
 export function Form() {
 
+    const inputFirstName = useRef();
+    const inputLastName = useRef();
+    const inputDateBirth = useRef();
+    const inputDateStart = useRef();
+    const inputStreet = useRef();
+    const inputCity = useRef();
+    const inputState = useRef();
+    const inputZipCode = useRef();
+    const inputDepartment = useRef();
+
+    const [errMsgFirst, setDataFirst] = useState('');
+    const [errMsgLast, seterrMsgLast] = useState('');
+    const [errMsgBirth, seterrMsgBirth] = useState('');
+    const [errMsgStart, seterrMsgStart] = useState('');
+    const [errMsgStreet, seterrMsgStreet] = useState('');
+    const [errMsgCity, seterrMsgCity] = useState('');
+    const [errMsgState, seterrMsgState] = useState('');
+    const [errMsgZipCode, seterrMsgZipCode] = useState('');
+    const [errMsgDepartment, seterrMsgDepartment] = useState('');
+
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
