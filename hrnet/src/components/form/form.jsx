@@ -1,10 +1,12 @@
 import './style/form.css'
 import Menu from "../menu/menu";
-import { stateArray } from '../../data/states';
+import { statesArray } from '../../data/states';
 import { useState } from 'react';
 
 export function Form() {
-    const [dataStates, setDataStates] = useState(stateArray);
+    const [dataStates, setDataStates] = useState(statesArray);
+    const [dataDepartments, setDataDepartments] = useState(DepartmentsArray);
+
     return <>
         <form action="" id="create-employee">
             <h2>Create Employee</h2>
@@ -35,12 +37,12 @@ export function Form() {
                 <label for="city">City</label>
                 <input required id="city" type="text" />
 
-                <Menu data={data} text='State' className='label-state' for='state' name='state' id="state" />
+                <Menu data={dataStates} text='State' className='label-state' for='state' name='state' id="state" />
 
                 <label for="zip-code">Zip Code</label>
                 <input required id="zip-code" type="number" />
             </fieldset>
-            <Menu text='Department' className='label-department' for='department' name='department' id="department" />
+            <Menu data={dataDepartments} text='Department' className='label-department' for='department' name='department' id="department" />
             <button onclick="saveEmployee()">Add employee</button>
         </form>
     </>
