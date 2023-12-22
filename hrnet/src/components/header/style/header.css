@@ -2,7 +2,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 header img {
-  width: 120px;
+  width: 50px;
 }/*# sourceMappingURL=header.css.map */
