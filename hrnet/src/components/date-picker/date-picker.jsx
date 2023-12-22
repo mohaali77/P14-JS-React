@@ -1,11 +1,12 @@
+import { useRef } from 'react'
 import './style/date-picker.css'
 
-export function DatePicker({ id, labelText }) {
+export function DatePicker({ id, labelText, ref }) {
     return <>
         <label id={id} htmlFor={id}>
             {labelText}
         </label>
-        <input type="date" id={id} placeholder="A" />
+        <input ref={inputDateBirth} type="date" id={id} placeholder="A" />
     </>
 }
 
