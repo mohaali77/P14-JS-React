@@ -36,13 +36,15 @@ export function Form() {
     const showErrorMsg = () => {
 
         inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputLastName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputDateBirth.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputDateStart.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputStreet.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputCity.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputState.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputZipCode.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputDepartment.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+
 
 
     }
