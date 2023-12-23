@@ -48,12 +48,14 @@ export function Form() {
             inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false ? errMsgFirst.current = true : errMsgFirst.current = false
             inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false ? errMsgLast.current = true : errMsgLast.current = false
             inputDateBirth.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value ? errMsgBirth.current = true : errMsgBirth.current = false
-            inputDateStart.current.value === '' ? errMsgStart.current = true : errMsgStart.current = false
+            inputDateStart.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value ? errMsgStart.current = true : errMsgStart.current = false
             inputStreet.current.value === '' || regexStreet.test(inputStreet.current.value) === false ? errMsgStreet.current = true : errMsgStreet.current = false
             inputCity.current.value === '' || regexCity.test(inputCity.current.value) === false ? errMsgCity.current = true : errMsgCity.current = false
             inputState.current.value === '' ? errMsgState.current = true : errMsgState.current = false
             inputZipCode.current.value === '' || regexZipcode.test(inputZipCode.current.value) === false ? errMsgZipCode.current = true : errMsgZipCode.current = false
             inputDepartment.current.value === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
+
+            //ajouter années minimum de différence entre date de commencement et date de naissance
         }
 
         showErrorMsg()
