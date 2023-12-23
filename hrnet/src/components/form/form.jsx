@@ -63,18 +63,18 @@ export function Form() {
 
                 <label htmlFor="first-name">First Name</label>
                 <input required ref={inputFirstName} type="text" id="first-name" />
-                {errMsgFirst ? <p className='errorMsg'>Prénom invalide</p> : null}
+                {errMsgFirst.current ? <p className='errorMsg'>Invalid Firstname</p> : null}
 
 
                 <label htmlFor="last-name">Last Name</label>
                 <input required ref={inputLastName} type="text" id="last-name" />
-                {errMsgLast ? <p className='errorMsg'>Nom invalide</p> : null}
+                {errMsgLast.current ? <p className='errorMsg'>Invalid Lastname</p> : null}
 
                 <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' />
-                {errMsgBirth ? <p className='errorMsg'>Date de naissance invalide</p> : null}
+                {errMsgBirth.current ? <p className='errorMsg'>Invalid Date of Birth</p> : null}
 
                 <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' />
-                {errMsgStart ? <p className='errorMsg'>Date de début invalide</p> : null}
+                {errMsgStart.current ? <p className='errorMsg'>Invalid Start Date</p> : null}
             </fieldset>
 
 
@@ -83,20 +83,23 @@ export function Form() {
 
                 <label htmlFor="street">Street</label>
                 <input required ref={inputStreet} id="street" type="text" />
-                {errMsgFirst ? <p className='errorMsg'>Prénom invalide</p> : null}
+                {errMsgStreet.current ? <p className='errorMsg'>Invalid Street</p> : null}
 
                 <label htmlFor="city">City</label>
                 <input required ref={inputCity} id="city" type="text" />
-                {errMsgFirst ? <p className='errorMsg'>Prénom invalide</p> : null}
+                {errMsgCity.current ? <p className='errorMsg'>Invalid City</p> : null}
 
                 <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
+                {errMsgState.current ? <p className='errorMsg'>Select a state</p> : null}
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input required ref={inputZipCode} id="zip-code" type="number" />
-                {errMsgFirst ? <p className='errorMsg'>Prénom invalide</p> : null}
+                {errMsgFirst.current ? <p className='errorMsg'>Invalid Zip Code</p> : null}
 
             </fieldset>
             <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
+            {errMsgState.current ? <p className='errorMsg'>Select a state</p> : null}
+
             <button onClick={handleSubmit} >Add employee</button>
         </form >
     </>
