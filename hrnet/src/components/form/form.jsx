@@ -33,24 +33,28 @@ export function Form() {
 
     const handleInputChange = () => { }
 
-    const showErrorMsg = () => {
-
-        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = true
-        inputLastName.current === '' ? errMsgLast.current = true : errMsgLast.current = false
-        inputDateBirth.current === '' ? errMsgBirth.current = true : errMsgBirth.current = false
-        inputDateStart.current === '' ? errMsgStart.current = true : errMsgState.current = false
-        inputStreet.current === '' ? errMsgStreet.current = true : errMsgStreet.current = false
-        inputCity.current === '' ? errMsgCity.current = true : errMsgCity.current = false
-        inputState.current === '' ? errMsgState.current = true : errMsgState.current = false
-        inputZipCode.current === '' ? errMsgZipCode.current = true : errMsgZipCode.current = false
-        inputDepartment.current === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
-
-
-
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const showErrorMsg = () => {
+
+            const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
+            const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
+
+            inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false ? errMsgFirst.current = true : errMsgFirst.current = false
+            inputLastName.current.value === '' ? errMsgLast.current = true : errMsgLast.current = false
+            inputDateBirth.current.value === '' ? errMsgBirth.current = true : errMsgBirth.current = false
+            inputDateStart.current.value === '' ? errMsgStart.current = true : errMsgState.current = false
+            inputStreet.current.value === '' ? errMsgStreet.current = true : errMsgStreet.current = false
+            inputCity.current.value === '' ? errMsgCity.current = true : errMsgCity.current = false
+            inputState.current.value === '' ? errMsgState.current = true : errMsgState.current = false
+            inputZipCode.current.value === '' ? errMsgZipCode.current = true : errMsgZipCode.current = false
+            inputDepartment.current.value === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
+            console.log(errMsgBirth);
+        }
+
+        showErrorMsg()
+
         setForm(
             {
                 firstname: inputFirstName.current.value,
