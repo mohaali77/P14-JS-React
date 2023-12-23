@@ -1,7 +1,7 @@
 import './style/form.css'
 import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
 
 export function Form() {
@@ -16,8 +16,6 @@ export function Form() {
     const inputZipCode = useRef('');
     const inputDepartment = useRef('');
 
-    const [form, setForm] = useState({});
-
     const errMsgFirst = useRef(false);
     const errMsgLast = useRef(false);
     const errMsgBirth = useRef(false);
@@ -28,6 +26,7 @@ export function Form() {
     const errMsgZipCode = useRef(false);
     const errMsgDepartment = useRef(false);
 
+    const [form, setForm] = useState({});
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
@@ -60,24 +59,23 @@ export function Form() {
 
         showErrorMsg()
 
-        setForm(
-            {
-                firstname: inputFirstName.current.value,
-                lastname: inputLastName.current.value,
-                dateBirth: inputDateBirth.current.value,
-                dateStart: inputDateStart.current.value,
-                street: inputStreet.current.value,
-                city: inputCity.current.value,
-                state: inputState.current.value,
-                zipCode: inputZipCode.current.value,
-                department: inputDepartment.current.value,
-            })
-        console.log(form);
-        const birthDate = new Date(inputDateBirth.current.value)
-        const startDateValue = new Date(inputDateStart.current.value);
-        console.log(birthDate.getFullYear());
-        console.log(startDateValue);
+        setForm({
+            firstname: inputFirstName.current.value,
+            lastname: inputLastName.current.value,
+            dateBirth: inputDateBirth.current.value,
+            dateStart: inputDateStart.current.value,
+            street: inputStreet.current.value,
+            city: inputCity.current.value,
+            state: inputState.current.value,
+            zipCode: inputZipCode.current.value,
+            department: inputDepartment.current.value,
+        })
     }
+
+    useEffect(() => {
+        console.log(form);
+    }, [form]);
+
 
     return <>
         <form action="" id="create-employee">
