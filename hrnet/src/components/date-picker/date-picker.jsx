@@ -16,25 +16,3 @@ export function DatePicker({ id, labelText, inputRef, onInputChange }) {
         <input required ref={inputRef} onChange={handleChange} type="date" id={id} placeholder="A" />
     </>
 }
-
-/*import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
-export function MyDatePicker() {
-    const [selectedDate, setSelectedDate] = useState(null);
-
-
-    return (
-        <div>
-            <label htmlFor="datepicker">Select a Date:</label>
-            <DatePicker
-                id="datepicker"
-                selected={selectedDate}
-                onChange={date => setSelectedDate(date)}
-                dateFormat="MM/dd/yyyy" // Format de la date
-            />
-        </div>
-    );
-}
-*/
