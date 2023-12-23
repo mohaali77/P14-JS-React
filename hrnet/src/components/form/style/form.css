@@ -9,7 +9,7 @@ form {
   align-items: center;
   width: 450px;
 }
-form .personal-infos {
+form fieldset {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -39,12 +39,6 @@ form .label-department {
   margin-right: 10px;
   margin-top: 10px;
 }
-form .address {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  margin: 0px 5px;
-}
 form button {
   color: #687f12;
   font-weight: bold;
@@ -60,4 +54,21 @@ form button {
 }
 form button:hover {
   transform: scale(1.025);
+}
+
+@media screen and (max-width: 500px) {
+  form {
+    width: 300px;
+  }
+  form fieldset {
+    width: 75%;
+    margin-bottom: 5px;
+  }
+  form button {
+    margin: 10px 70px;
+  }
+  form #department {
+    width: 75%;
+    margin-bottom: 5px;
+  }
 }/*# sourceMappingURL=form.css.map */
