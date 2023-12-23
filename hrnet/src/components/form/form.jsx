@@ -40,15 +40,19 @@ export function Form() {
 
             const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
             const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
+            const regexCity = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s'-]{2,}$/;
+            const regexStreet = /^[a-zA-Z0-9\s',.-]{2,}$/;
+            const regexZipcode = /^\d{5}(?:-\d{4})?$/;
+
 
             inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false ? errMsgFirst.current = true : errMsgFirst.current = false
-            inputLastName.current.value === '' ? errMsgLast.current = true : errMsgLast.current = false
+            inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false ? errMsgLast.current = true : errMsgLast.current = false
             inputDateBirth.current.value === '' ? errMsgBirth.current = true : errMsgBirth.current = false
             inputDateStart.current.value === '' ? errMsgStart.current = true : errMsgState.current = false
-            inputStreet.current.value === '' ? errMsgStreet.current = true : errMsgStreet.current = false
-            inputCity.current.value === '' ? errMsgCity.current = true : errMsgCity.current = false
+            inputStreet.current.value === '' || regexStreet.test(inputStreet.current.value) === false ? errMsgStreet.current = true : errMsgStreet.current = false
+            inputCity.current.value === '' || regexCity.test(inputCity.current.value) === false ? errMsgCity.current = true : errMsgCity.current = false
             inputState.current.value === '' ? errMsgState.current = true : errMsgState.current = false
-            inputZipCode.current.value === '' ? errMsgZipCode.current = true : errMsgZipCode.current = false
+            inputZipCode.current.value === '' || regexZipcode.test(inputZipCode.current.value) === false ? errMsgZipCode.current = true : errMsgZipCode.current = false
             inputDepartment.current.value === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
             console.log(errMsgBirth);
         }
