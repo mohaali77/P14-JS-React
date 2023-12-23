@@ -12,6 +12,7 @@ export default function Menu({ className, name, id, forName, text, data, inputRe
     return <>
         <label className={className} htmlFor={forName}>{text}</label>
         <select required ref={inputRef} onChange={handleChange} name={name} id={id}>
+            <option value="">Choose a {id}</option>
             {data.map((data) => (
                 <option key={data.abbreviation} value={data.name}>
                     {data.name}
