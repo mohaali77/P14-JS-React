@@ -36,14 +36,14 @@ export function Form() {
     const showErrorMsg = () => {
 
         inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = true
-        inputLastName.current === '' ? errMsgLast.current = true : errMsgFirst.current = false
-        inputDateBirth.current === '' ? errMsgBirth.current = true : errMsgFirst.current = false
-        inputDateStart.current === '' ? errMsgStart.current = true : errMsgFirst.current = false
-        inputStreet.current === '' ? errMsgStreet.current = true : errMsgFirst.current = false
-        inputCity.current === '' ? errMsgCity.current = true : errMsgFirst.current = false
-        inputState.current === '' ? errMsgState.current = true : errMsgFirst.current = false
-        inputZipCode.current === '' ? errMsgZipCode.current = true : errMsgFirst.current = false
-        inputDepartment.current === '' ? errMsgDepartment.current = true : errMsgFirst.current = false
+        inputLastName.current === '' ? errMsgLast.current = true : errMsgLast.current = false
+        inputDateBirth.current === '' ? errMsgBirth.current = true : errMsgBirth.current = false
+        inputDateStart.current === '' ? errMsgStart.current = true : errMsgState.current = false
+        inputStreet.current === '' ? errMsgStreet.current = true : errMsgStreet.current = false
+        inputCity.current === '' ? errMsgCity.current = true : errMsgCity.current = false
+        inputState.current === '' ? errMsgState.current = true : errMsgState.current = false
+        inputZipCode.current === '' ? errMsgZipCode.current = true : errMsgZipCode.current = false
+        inputDepartment.current === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
 
 
 
