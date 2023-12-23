@@ -9,7 +9,7 @@
         align-items: center;
         width: 450px;
 
-        .personal-infos {
+        fieldset {
             display: flex;
             flex-direction: column;
             width: 40%;
@@ -47,14 +47,6 @@
             margin-top: 10px;
         }
 
-        .address {
-            display: flex;
-            flex-direction: column;
-            width: 40%;
-            margin: 0px 5px;
-
-        }
-
         button {
             color: #687f12;
             font-weight: bold;
@@ -74,4 +66,22 @@
         }
     }
 
-    @media only screen and (max-width: 365px) and (max-height: 667px) {}
+    @media screen and (max-width: 500px) {
+        form {
+            width: 300px;
+
+            fieldset {
+                width: 75%;
+                margin-bottom: 5px;
+            }
+
+            button {
+                margin: 10px 70px;
+            }
+
+            #department {
+                width: 75%;
+                margin-bottom: 5px;
+            }
+        }
+    }
