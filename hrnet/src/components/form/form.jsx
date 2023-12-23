@@ -29,6 +29,28 @@ export function Form() {
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
+    const handleInputChange = () => {
+        console.log(
+            `Date Naissance : ${inputDateBirth.current.value}`,
+            `Date Début : ${inputDateStart.current.value}`,
+            `Departement : ${inputDepartment.current.value}`);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(
+            inputFirstName.current.value,
+            inputCity.current.value,
+            inputLastName.current.value,
+            inputDateBirth.current.value,
+            inputState.current.value,
+            inputDepartment.current.value,
+            inputStreet.current.value,
+            inputZipCode.current.value,
+            inputDateStart.current.value
+        );
+    }
+
     return <>
         <form action="" id="create-employee">
             <h2>Create Employee</h2>
@@ -37,17 +59,17 @@ export function Form() {
                 </legend>
 
                 <label htmlFor="first-name">First Name</label>
-                <input ref={inputFirstName} required type="text" id="first-name" />
+                <input required ref={inputFirstName} type="text" id="first-name" />
                 <p className='errorMsg'>Prénom invalide</p>
 
                 <label htmlFor="last-name">Last Name</label>
-                <input ref={inputLastName} required type="text" id="last-name" />
+                <input required ref={inputLastName} type="text" id="last-name" />
                 <p className='errorMsg'>Nom invalide</p>
 
-                <DatePicker ref={inputDateBirth} labelText='Date of Birth' id='date-of-birth' />
+                <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' />
                 <p className='errorMsg'>Date de naissance invalide</p>
 
-                <DatePicker ref={inputDateStart} labelText='Start Date' id='start-date' />
+                <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' />
                 <p className='errorMsg'>Date de début invalide</p>
             </fieldset>
 
@@ -56,22 +78,22 @@ export function Form() {
                 <legend>Address</legend>
 
                 <label htmlFor="street">Street</label>
-                <input ref={inputStreet} required id="street" type="text" />
+                <input required ref={inputStreet} id="street" type="text" />
                 <p className='errorMsg'>Date de début invalide</p>
 
                 <label htmlFor="city">City</label>
-                <input ref={inputCity} required id="city" type="text" />
+                <input required ref={inputCity} id="city" type="text" />
                 <p className='errorMsg'>Date de début invalide</p>
 
-                <Menu data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
+                <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
 
                 <label htmlFor="zip-code">Zip Code</label>
-                <input ref={inputZipCode} required id="zip-code" type="number" />
+                <input required ref={inputZipCode} id="zip-code" type="number" />
                 <p className='errorMsg'>Date de début invalide</p>
 
             </fieldset>
             <Menu ref={inputDepartment} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
-            <button>Add employee</button>
+            <button onClick={handleSubmit} >Add employee</button>
         </form >
     </>
 }
