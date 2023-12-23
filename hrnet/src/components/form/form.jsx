@@ -6,15 +6,15 @@ import { DatePicker } from '../date-picker/date-picker';
 
 export function Form() {
 
-    const inputFirstName = useRef();
-    const inputLastName = useRef();
-    const inputDateBirth = useRef();
-    const inputDateStart = useRef();
-    const inputStreet = useRef();
-    const inputCity = useRef();
-    const inputState = useRef();
-    const inputZipCode = useRef();
-    const inputDepartment = useRef();
+    const inputFirstName = useRef('');
+    const inputLastName = useRef('');
+    const inputDateBirth = useRef('');
+    const inputDateStart = useRef('');
+    const inputStreet = useRef('');
+    const inputCity = useRef('');
+    const inputState = useRef('');
+    const inputZipCode = useRef('');
+    const inputDepartment = useRef('');
 
     const [errMsgFirst, setDataFirst] = useState('');
     const [errMsgLast, seterrMsgLast] = useState('');
@@ -38,17 +38,18 @@ export function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(
-            inputFirstName.current.value,
-            inputCity.current.value,
-            inputLastName.current.value,
-            inputDateBirth.current.value,
-            inputState.current.value,
-            inputDepartment.current.value,
-            inputStreet.current.value,
-            inputZipCode.current.value,
-            inputDateStart.current.value
-        );
+        let form = {
+            firstname: inputFirstName.current.value,
+            lastname: inputLastName.current.value,
+            dateBirth: inputDateBirth.current.value,
+            dateStart: inputDateStart.current.value,
+            street: inputStreet.current.value,
+            city: inputCity.current.value,
+            state: inputState.current.value,
+            zipCode: inputZipCode.current.value,
+            department: inputDepartment.current.value,
+        }
+        console.log(form);
     }
 
     return <>
@@ -85,14 +86,14 @@ export function Form() {
                 <input required ref={inputCity} id="city" type="text" />
                 <p className='errorMsg'>Date de début invalide</p>
 
-                <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
+                <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" />
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input required ref={inputZipCode} id="zip-code" type="number" />
                 <p className='errorMsg'>Date de début invalide</p>
 
             </fieldset>
-            <Menu ref={inputDepartment} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
+            <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
             <button onClick={handleSubmit} >Add employee</button>
         </form >
     </>
