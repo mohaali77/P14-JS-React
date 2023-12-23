@@ -35,6 +35,16 @@ export function Form() {
 
     const showErrorMsg = () => {
 
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+        inputFirstName.current === '' ? errMsgFirst.current = true : errMsgFirst.current = false
+
+
     }
 
     const handleSubmit = (e) => {
@@ -94,11 +104,11 @@ export function Form() {
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input required ref={inputZipCode} id="zip-code" type="number" />
-                {errMsgFirst.current ? <p className='errorMsg'>Invalid Zip Code</p> : null}
+                {errMsgZipCode.current ? <p className='errorMsg'>Invalid Zip Code</p> : null}
 
             </fieldset>
             <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" />
-            {errMsgState.current ? <p className='errorMsg'>Select a state</p> : null}
+            {errMsgDepartment.current ? <p className='errorMsg'>Select a state</p> : null}
 
             <button onClick={handleSubmit} >Add employee</button>
         </form >
