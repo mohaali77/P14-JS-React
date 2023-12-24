@@ -3,9 +3,12 @@ import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
+import { useDispatch } from "react-redux";
+import { create } from "../../redux/employeeSlice";
 
 export function Form() {
 
+    const dispatch = useDispatch();
     const inputFirstName = useRef('');
     const inputLastName = useRef('');
     const inputDateBirth = useRef('');
@@ -70,6 +73,20 @@ export function Form() {
             zipCode: inputZipCode.current.value,
             department: inputDepartment.current.value,
         })
+
+        dispatch(
+            create({
+                firstname: inputFirstName.current.value,
+                lastname: inputLastName.current.value,
+                dateBirth: inputDateBirth.current.value,
+                dateStart: inputDateStart.current.value,
+                street: inputStreet.current.value,
+                city: inputCity.current.value,
+                state: inputState.current.value,
+                zipCode: inputZipCode.current.value,
+                department: inputDepartment.current.value,
+            })
+        );
     }
 
     useEffect(() => {
