@@ -3,12 +3,12 @@ import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
-import { useDispatch } from "react-redux";
-import { create } from "../../redux/employeeSlice";
+//import { useDispatch } from "react-redux";
+//import { create } from "../../redux/employeeSlice";
 
 export function Form() {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const inputFirstName = useRef('');
     const inputLastName = useRef('');
     const inputDateBirth = useRef('');
@@ -29,7 +29,8 @@ export function Form() {
     const errMsgZipCode = useRef(false);
     const errMsgDepartment = useRef(false);
 
-    const [form, setForm] = useState({});
+
+    const [employeeArray, setEmployeeArray] = useState(localStorage.length <= 0 ? [] : JSON.parse(localStorage.getItem('employee')));
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
 
@@ -62,7 +63,7 @@ export function Form() {
 
         showErrorMsg()
 
-        setForm({
+        const newEmployee = {
             firstname: inputFirstName.current.value,
             lastname: inputLastName.current.value,
             dateBirth: inputDateBirth.current.value,
@@ -72,26 +73,23 @@ export function Form() {
             state: inputState.current.value,
             zipCode: inputZipCode.current.value,
             department: inputDepartment.current.value,
-        })
+        }
 
-        dispatch(
-            create({
-                firstname: inputFirstName.current.value,
-                lastname: inputLastName.current.value,
-                dateBirth: inputDateBirth.current.value,
-                dateStart: inputDateStart.current.value,
-                street: inputStreet.current.value,
-                city: inputCity.current.value,
-                state: inputState.current.value,
-                zipCode: inputZipCode.current.value,
-                department: inputDepartment.current.value,
-            })
-        );
+        setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])
+
     }
 
+
+
     useEffect(() => {
-        console.log(form);
-    }, [form]);
+
+        if (localStorage.length <= 0) {
+            localStorage.setItem('employee', [])
+        }
+        const tableauJSON = JSON.stringify(employeeArray);
+        localStorage.setItem('employee', tableauJSON);
+
+    }, [employeeArray]);
 
 
     return <>
