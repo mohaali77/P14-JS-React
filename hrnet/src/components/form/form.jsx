@@ -33,13 +33,16 @@ export function Form() {
     const [employeeArray, setEmployeeArray] = useState(localStorage.length <= 0 ? [] : JSON.parse(localStorage.getItem('employee')));
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
+    const [isFormValid, setIsFormValid] = useState(true)
 
     const handleInputChange = () => { }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const showErrorMsg = () => {
+        function showErrorMsg() {
+
+
 
             const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
             const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
@@ -48,7 +51,7 @@ export function Form() {
             const regexZipcode = /^\d{5}(?:-\d{4})?$/;
 
 
-            inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false ? errMsgFirst.current = true : errMsgFirst.current = false
+            inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false ? errMsgFirst.current = true : errMsgFirst.current = false;
             inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false ? errMsgLast.current = true : errMsgLast.current = false
             inputDateBirth.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value ? errMsgBirth.current = true : errMsgBirth.current = false
             inputDateStart.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value ? errMsgStart.current = true : errMsgStart.current = false
@@ -58,10 +61,16 @@ export function Form() {
             inputZipCode.current.value === '' || regexZipcode.test(inputZipCode.current.value) === false ? errMsgZipCode.current = true : errMsgZipCode.current = false
             inputDepartment.current.value === '' ? errMsgDepartment.current = true : errMsgDepartment.current = false
 
-            //ajouter années minimum de différence entre date de commencement et date de naissance
+            errMsgFirst.current || errMsgLast.current || errMsgBirth.current || errMsgStart.current || errMsgStreet.current || errMsgCity.current || errMsgState.current || errMsgZipCode ? setIsFormValid(false) : setIsFormValid(true)
+
+            return isFormValid
+
+            //ajouter années minimum de différence entre date de commencement et date de naissance ?
         }
 
         showErrorMsg()
+
+        console.log(showErrorMsg);
 
         const newEmployee = {
             firstname: inputFirstName.current.value,
@@ -76,6 +85,7 @@ export function Form() {
         }
 
         setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])
+
 
     }
 
