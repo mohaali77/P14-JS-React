@@ -1,8 +1,25 @@
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { configureStore } from "@reduxjs/toolkit";
 import employeeReducer from "./employeeSlice";
 
-export default configureStore({
+const persistConfig = {
+    key: "root",
+    storage,
+    whitelist: ["employee"],
+};
+
+const persistedEmployeeReducer = persistReducer(
+    persistConfig,
+    employeeReducer
+);
+
+const store = configureStore({
     reducer: {
-        employee: employeeReducer,
-    }
-})
+        employee: persistedEmployeeReducer,
+    },
+});
+
+const persistor = persistStore(store);
+
+export { store, persistor };
