@@ -30,10 +30,11 @@ export function Form() {
     const errMsgDepartment = useRef(false);
 
 
-    const [employeeArray, setEmployeeArray] = useState(localStorage.length <= 0 ? [] : JSON.parse(localStorage.getItem('employee')));
+    const [employeeArray, setEmployeeArray] = useState(
+        localStorage.length <= 0 ? [] : JSON.parse(localStorage.getItem('employee')));
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
-    const [isFormValid, setIsFormValid] = useState(true)
+    const [isFormValid, setIsFormValid] = useState(null)
 
     const handleInputChange = () => { }
 
@@ -41,8 +42,6 @@ export function Form() {
         e.preventDefault()
 
         function showErrorMsg() {
-
-
 
             const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
             const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
@@ -63,33 +62,30 @@ export function Form() {
 
             errMsgFirst.current || errMsgLast.current || errMsgBirth.current || errMsgStart.current || errMsgStreet.current || errMsgCity.current || errMsgState.current || errMsgZipCode ? setIsFormValid(false) : setIsFormValid(true)
 
-            return isFormValid
-
+            console.log('errorMsgFirst ' + errMsgFirst.current);
+            console.log('isFormValid ' + isFormValid);
             //ajouter années minimum de différence entre date de commencement et date de naissance ?
         }
 
         showErrorMsg()
 
-        console.log(showErrorMsg);
+        if (isFormValid) {
+            const newEmployee = {
+                firstname: inputFirstName.current.value,
+                lastname: inputLastName.current.value,
+                dateBirth: inputDateBirth.current.value,
+                dateStart: inputDateStart.current.value,
+                street: inputStreet.current.value,
+                city: inputCity.current.value,
+                state: inputState.current.value,
+                zipCode: inputZipCode.current.value,
+                department: inputDepartment.current.value,
+            }
 
-        const newEmployee = {
-            firstname: inputFirstName.current.value,
-            lastname: inputLastName.current.value,
-            dateBirth: inputDateBirth.current.value,
-            dateStart: inputDateStart.current.value,
-            street: inputStreet.current.value,
-            city: inputCity.current.value,
-            state: inputState.current.value,
-            zipCode: inputZipCode.current.value,
-            department: inputDepartment.current.value,
+            setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])
         }
 
-        setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])
-
-
     }
-
-
 
     useEffect(() => {
 
