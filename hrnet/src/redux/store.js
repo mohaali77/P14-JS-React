@@ -7,7 +7,8 @@ const persistConfig = {
     key: "root",
     storage,
     whitelist: ["employee"],
-};
+    serialize: false,
+}
 
 const persistedEmployeeReducer = persistReducer(
     persistConfig,
