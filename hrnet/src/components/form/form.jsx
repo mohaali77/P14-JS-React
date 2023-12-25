@@ -71,27 +71,27 @@ export function Form() {
         const regexStreet = /^[a-zA-Z0-9\s',.-]{2,}$/;
         const regexZipcode = /^\d{5}(?:-\d{4})?$/;
 
-        if (formData.firstName.trim() === '' || regexFirstName.test(formData.firstName.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.lastName.trim() === '' || regexLastName.test(formData.lastName.trim() === '') === false) { newErrors.lastName = "Invalid lastName"; isFormValid = false }
-        if (formData.dateBirth.trim() === '') { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.dateStart.trim() === '') { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.street.trim() === '' || regexFirstName.test(formData.street.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.city.trim() === '' || regexFirstName.test(formData.city.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.zipCode.trim() === '' || regexFirstName.test(formData.zipCode.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.department.trim() === '' || regexFirstName.test(formData.department.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
-        if (formData.state.trim() === '' || regexFirstName.test(formData.state.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.firstName.trim() === '' || regexFirstName.test(formData.firstName) === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.lastName.trim() === '' || regexLastName.test(formData.lastName) === false) { newErrors.lastName = "Invalid lastName"; isFormValid = false }
+        if (formData.dateBirth.trim() === '') { newErrors.dateBirth = "Invalid Date of Birth"; isFormValid = false }
+        if (formData.dateStart.trim() === '') { newErrors.dateStart = "Invalid Date of Start"; isFormValid = false }
+        if (formData.street.trim() === '' || regexStreet.test(formData.street) === false) { newErrors.street = "Invalid Street"; isFormValid = false }
+        if (formData.city.trim() === '' || regexCity.test(formData.city) === false) { newErrors.city = "Invalid City"; isFormValid = false }
+        if (formData.zipCode.trim() === '' || regexZipcode.test(formData.zipCode) === false) { newErrors.zipCode = "Invalid Zip Code"; isFormValid = false }
+        if (formData.department.trim() === '') { newErrors.department = "Invalid Department"; isFormValid = false }
+        if (formData.state.trim() === '') { newErrors.state = "Invalid State"; isFormValid = false }
 
 
 
 
-        if (inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false) { errMsgLast.current = true; isFormValid = false } else { errMsgLast.current = false }
+        /*if (inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false) { errMsgLast.current = true; isFormValid = false } else { errMsgLast.current = false }
         if (inputDateBirth.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgBirth.current = true; isFormValid = false } else { errMsgBirth.current = false }
         if (inputDateStart.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgStart.current = true; isFormValid = false } else { errMsgStart.current = false }
         if (inputStreet.current.value === '' || regexStreet.test(inputStreet.current.value) === false) { errMsgStreet.current = true; isFormValid = false } else { errMsgStreet.current = false }
         if (inputCity.current.value === '' || regexCity.test(inputCity.current.value) === false) { errMsgCity.current = true; isFormValid = false } else { errMsgCity.current = false }
         if (inputState.current.value === '') { errMsgState.current = true; isFormValid = false } else { errMsgState.current = false }
         if (inputZipCode.current.value === '' || regexZipcode.test(inputZipCode.current.value) === false) { errMsgZipCode.current = true; isFormValid = false } else { errMsgZipCode.current = false }
-        if (inputDepartment.current.value === '') { errMsgDepartment.current = true; isFormValid = false } else { errMsgDepartment.current = false }
+        if (inputDepartment.current.value === '') { errMsgDepartment.current = true; isFormValid = false } else { errMsgDepartment.current = false }*/
 
         return isFormValid
     }
