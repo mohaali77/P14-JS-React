@@ -81,6 +81,17 @@ export function Form() {
         return isFormValid
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (validateForm()) {
+            // Effectuer l'action de soumission ici
+            console.log('Formulaire soumis avec succès !');
+        } else {
+            console.log('Le formulaire contient des erreurs. Veuillez les corriger.');
+        }
+    };
+
 
 
     useEffect(() => {
@@ -110,26 +121,50 @@ export function Form() {
 
 
     return <>
-        <form action="" id="create-employee">
+        <form onSubmit={handleSubmit} id="create-employee">
             <h2>Create Employee</h2>
             <fieldset className='personal-infos'>
                 <legend>Personal informations
                 </legend>
 
                 <label htmlFor="first-name">First Name</label>
-                <input required ref={inputFirstName} type="text" id="first-name" value={formData.firstName} onChange={handleChange}
+                <input
+                    type="text"
+                    id="first-name"
+                    name="firstName"
+                    ref={inputFirstName}
+                    value={formData.firstName}
+                    onChange={handleChange}
                 />
                 <p className='errorMsg'>{errorMsg.firstName}</p>
 
 
                 <label htmlFor="last-name">Last Name</label>
-                <input required ref={inputLastName} type="text" id="last-name" value={formData.lastName} onChange={handleChange} />
+                <input
+                    ref={inputLastName}
+                    type="text"
+                    id="last-name"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.lastName}</p>
 
-                <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' value={formData.birthDate} onChange={handleChange} />
+                <DatePicker
+                    inputRef={inputDateBirth}
+                    onInputChange={handleInputChange}
+                    labelText='Date of Birth'
+                    id='date-of-birth'
+                    value={formData.birthDate}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.dateBirth}</p>
 
-                <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' value={formData.startDate} onChange={handleChange} />
+                <DatePicker
+                    inputRef={inputDateStart}
+                    onInputChange={handleInputChange}
+                    labelText='Start Date'
+                    id='start-date'
+                    value={formData.startDate}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.dateStart}</p>
             </fieldset>
 
@@ -138,23 +173,56 @@ export function Form() {
                 <legend>Address</legend>
 
                 <label htmlFor="street">Street</label>
-                <input required ref={inputStreet} id="street" type="text" value={formData.street} onChange={handleChange} />
+                <input
+                    ref={inputStreet}
+                    id="street"
+                    name='street'
+                    type="text"
+                    value={formData.street}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.street}</p>
 
                 <label htmlFor="city">City</label>
-                <input required ref={inputCity} id="city" type="text" value={formData.city} />
+                <input
+                    ref={inputCity}
+                    id="city"
+                    name='city'
+                    type="text"
+                    value={formData.city} />
                 <p className='errorMsg'>{errorMsg.city}</p>
 
-                <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" value={formData.state} onChange={handleChange} />
+                <Menu
+                    inputRef={inputState}
+                    onInputChange={handleInputChange}
+                    data={dataStates} text='State'
+                    className='label-state' htmlFor='state'
+                    name='state' id="state" value={formData.state}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.state}</p>
 
                 <label htmlFor="zip-code">Zip Code</label>
-                <input required ref={inputZipCode} id="zip-code" type="number" value={formData.zipCode} onChange={handleChange}
+                <input
+                    ref={inputZipCode}
+                    id="zip-code"
+                    name='zipCode'
+                    type="number"
+                    value={formData.zipCode}
+                    onChange={handleChange}
                 />
                 <p className='errorMsg'>{errorMsg.zipCode}</p>
 
             </fieldset>
-            <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" value={formData.department} onChange={handleChange} />
+            <Menu
+                inputRef={inputDepartment}
+                onInputChange={handleInputChange}
+                data={dataDepartments}
+                text='Department'
+                className='label-department'
+                htmlFor='department'
+                name='department'
+                id="department"
+                value={formData.department}
+                onChange={handleChange} />
             <p className='errorMsg'>{errorMsg.department}</p>
 
             <button type='submit' onClick={validateForm} >Add employee</button>
