@@ -45,8 +45,6 @@ export function Form() {
         department: ''
     });
 
-    const handleInputChange = () => { }
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -124,8 +122,7 @@ export function Form() {
         <form onSubmit={handleSubmit} id="create-employee">
             <h2>Create Employee</h2>
             <fieldset className='personal-infos'>
-                <legend>Personal informations
-                </legend>
+                <legend>Personal informations </legend>
 
                 <label htmlFor="first-name">First Name</label>
                 <input
@@ -151,18 +148,18 @@ export function Form() {
 
                 <DatePicker
                     inputRef={inputDateBirth}
-                    onInputChange={handleInputChange}
                     labelText='Date of Birth'
                     id='date-of-birth'
+                    name='dateBirth'
                     value={formData.birthDate}
                     onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.dateBirth}</p>
 
                 <DatePicker
                     inputRef={inputDateStart}
-                    onInputChange={handleInputChange}
                     labelText='Start Date'
                     id='start-date'
+                    name='dateStart'
                     value={formData.startDate}
                     onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.dateStart}</p>
@@ -188,15 +185,17 @@ export function Form() {
                     id="city"
                     name='city'
                     type="text"
-                    value={formData.city} />
+                    value={formData.city}
+                    onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.city}</p>
 
                 <Menu
                     inputRef={inputState}
-                    onInputChange={handleInputChange}
                     data={dataStates} text='State'
                     className='label-state' htmlFor='state'
-                    name='state' id="state" value={formData.state}
+                    name='state'
+                    id="state"
+                    value={formData.state}
                     onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.state}</p>
 
@@ -214,7 +213,6 @@ export function Form() {
             </fieldset>
             <Menu
                 inputRef={inputDepartment}
-                onInputChange={handleInputChange}
                 data={dataDepartments}
                 text='Department'
                 className='label-department'
