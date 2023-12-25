@@ -45,11 +45,6 @@ export function Form() {
         department: ''
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
-
     const validateForm = (e) => {
 
         e.preventDefault()
@@ -76,6 +71,8 @@ export function Form() {
 
         setErrorMsg(newErrors)
 
+        console.log(isFormValid);
+
         return isFormValid
     }
 
@@ -83,7 +80,18 @@ export function Form() {
         e.preventDefault();
 
         if (validateForm()) {
-            // Effectuer l'action de soumission ici
+            /*const newEmployee = {
+                firstname: inputFirstName.current.value,
+                lastname: inputLastName.current.value,
+                dateBirth: inputDateBirth.current.value,
+                dateStart: inputDateStart.current.value,
+                street: inputStreet.current.value,
+                city: inputCity.current.value,
+                state: inputState.current.value,
+                zipCode: inputZipCode.current.value,
+                department: inputDepartment.current.value,
+            }
+            setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])*/
             console.log('Formulaire soumis avec succès !');
         } else {
             console.log('Le formulaire contient des erreurs. Veuillez les corriger.');
@@ -91,22 +99,16 @@ export function Form() {
     };
 
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
 
     useEffect(() => {
 
         /*if (handleSubmit()) {
-        const newEmployee = {
-            firstname: inputFirstName.current.value,
-            lastname: inputLastName.current.value,
-            dateBirth: inputDateBirth.current.value,
-            dateStart: inputDateStart.current.value,
-            street: inputStreet.current.value,
-            city: inputCity.current.value,
-            state: inputState.current.value,
-            zipCode: inputZipCode.current.value,
-            department: inputDepartment.current.value,
-        }
-        setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])
+        
     }*/
 
         if (localStorage.length <= 0) {
