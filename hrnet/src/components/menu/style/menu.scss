@@ -1,0 +1,15 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    position: absolute;
+    border-radius: 0px 0px 10px 10px;
+
+
+
+    li {
+        background-color: red;
+        list-style: none;
+        width: 180px;
+    }
+}
