@@ -1,8 +1,17 @@
-.container-modal {
-  background-color: black;
-  position: absolute;
-  opacity: 0.5;
+.modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.container-modal .modal {
+.modal-container .modal {
   background-color: red;
+  opacity: 1;
 }/*# sourceMappingURL=modal-dialog.css.map */
