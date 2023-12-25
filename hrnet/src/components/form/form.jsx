@@ -19,7 +19,7 @@ export function Form() {
     const inputZipCode = useRef();
     const inputDepartment = useRef();
 
-    const [employeeArray, setEmployeeArray] = useState(localStorage.length <= 0 || localStorage.employee === 'null' ? [] : JSON.parse(localStorage.getItem('employee')));
+    const [employeeArray, setEmployeeArray] = useState([]);
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
     const [formData, setFormData] = useState({
@@ -33,6 +33,22 @@ export function Form() {
         state: '',
         department: ''
     });
+
+    useEffect(() => {
+        // Vérifie si des données existent déjà dans le localStorage
+        const existingData = JSON.parse(localStorage.getItem('employee'));
+
+        // Si les données existent, mettez à jour l'état employeeArray
+        if (existingData) {
+            setEmployeeArray(existingData);
+        } else {
+            // Si le localStorage est vide ou null, initialisez-le avec un tableau vide
+            localStorage.setItem('employee', JSON.stringify([]));
+        }
+
+        console.log(employeeArray);
+    }, [])
+
     const [errorMsg, setErrorMsg] = useState({
         firstName: '',
         lastName: '',
@@ -46,9 +62,6 @@ export function Form() {
     });
 
     const validateForm = (e) => {
-
-        e.preventDefault()
-
         let isFormValid = true
 
         const newErrors = { firstName: '', lastName: '', dateBirth: '', dateStart: '', street: '', city: '', zipCode: '', state: '', department: '' };
@@ -71,8 +84,6 @@ export function Form() {
 
         setErrorMsg(newErrors)
 
-        console.log(isFormValid);
-
         return isFormValid
     }
 
@@ -80,45 +91,50 @@ export function Form() {
         e.preventDefault();
 
         if (validateForm()) {
-            /*const newEmployee = {
-                firstname: inputFirstName.current.value,
-                lastname: inputLastName.current.value,
-                dateBirth: inputDateBirth.current.value,
-                dateStart: inputDateStart.current.value,
-                street: inputStreet.current.value,
-                city: inputCity.current.value,
-                state: inputState.current.value,
-                zipCode: inputZipCode.current.value,
-                department: inputDepartment.current.value,
-            }
-            setEmployeeArray((oldEmployee) => [...oldEmployee, (newEmployee)])*/
+            // Créez un objet avec les informations du formulaire
+            const formDataObject = {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                dateBirth: formData.dateBirth,
+                dateStart: formData.dateStart,
+                street: formData.street,
+                city: formData.city,
+                zipCode: formData.zipCode,
+                state: formData.state,
+                department: formData.department
+            };
+
+            // Mettez à jour le tableau existant
+            setEmployeeArray((prevArray) => {
+                const updatedArray = [...prevArray, formDataObject];
+                // Enregistrez le tableau mis à jour dans le localStorage
+                localStorage.setItem('employee', JSON.stringify(updatedArray));
+                return updatedArray;
+            });
+
+            // Réinitialisez le formulaire après la sauvegarde
+            setFormData({
+                firstName: '',
+                lastName: '',
+                dateBirth: '',
+                dateStart: '',
+                street: '',
+                city: '',
+                zipCode: '',
+                state: '',
+                department: ''
+            });
+
             console.log('Formulaire soumis avec succès !');
         } else {
-            console.log('Le formulaire contient des erreurs. Veuillez les corriger.');
+            console.log('no');
         }
     };
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
-
-
-    useEffect(() => {
-
-        /*if (handleSubmit()) {
-        
-    }*/
-
-        if (localStorage.length <= 0) {
-            localStorage.setItem('employee', [])
-        }
-        const tableauJSON = JSON.stringify(employeeArray);
-        localStorage.setItem('employee', tableauJSON);
-
-    }, [employeeArray]);
-
 
     return <>
         <form onSubmit={handleSubmit} id="create-employee">
