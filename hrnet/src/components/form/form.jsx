@@ -9,31 +9,20 @@ import { DatePicker } from '../date-picker/date-picker';
 export function Form() {
 
     // const dispatch = useDispatch();
-    const inputFirstName = useRef('');
-    const inputLastName = useRef('');
-    const inputDateBirth = useRef('');
-    const inputDateStart = useRef('');
-    const inputStreet = useRef('');
-    const inputCity = useRef('');
-    const inputState = useRef('');
-    const inputZipCode = useRef('');
-    const inputDepartment = useRef('');
-
-    const errMsgFirst = useRef(false);
-    const errMsgLast = useRef(false);
-    const errMsgBirth = useRef(false);
-    const errMsgStart = useRef(false);
-    const errMsgStreet = useRef(false);
-    const errMsgCity = useRef(false);
-    const errMsgState = useRef(false);
-    const errMsgZipCode = useRef(false);
-    const errMsgDepartment = useRef(false);
-
+    const inputFirstName = useRef();
+    const inputLastName = useRef();
+    const inputDateBirth = useRef();
+    const inputDateStart = useRef();
+    const inputStreet = useRef();
+    const inputCity = useRef();
+    const inputState = useRef();
+    const inputZipCode = useRef();
+    const inputDepartment = useRef();
 
     const [employeeArray, setEmployeeArray] = useState(localStorage.length <= 0 || localStorage.employee === 'null' ? [] : JSON.parse(localStorage.getItem('employee')));
     const [dataStates, setDataStates] = useState(statesArray);
     const [dataDepartments, setDataDepartments] = useState(departmentsArray);
-    const [formData, setformData] = useState({
+    const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         dateBirth: '',
@@ -58,7 +47,13 @@ export function Form() {
 
     const handleInputChange = () => { }
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
+    const validateForm = (e) => {
+
         e.preventDefault()
 
         let isFormValid = true
@@ -81,17 +76,7 @@ export function Form() {
         if (formData.department.trim() === '') { newErrors.department = "Invalid Department"; isFormValid = false }
         if (formData.state.trim() === '') { newErrors.state = "Invalid State"; isFormValid = false }
 
-
-
-
-        /*if (inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false) { errMsgLast.current = true; isFormValid = false } else { errMsgLast.current = false }
-        if (inputDateBirth.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgBirth.current = true; isFormValid = false } else { errMsgBirth.current = false }
-        if (inputDateStart.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgStart.current = true; isFormValid = false } else { errMsgStart.current = false }
-        if (inputStreet.current.value === '' || regexStreet.test(inputStreet.current.value) === false) { errMsgStreet.current = true; isFormValid = false } else { errMsgStreet.current = false }
-        if (inputCity.current.value === '' || regexCity.test(inputCity.current.value) === false) { errMsgCity.current = true; isFormValid = false } else { errMsgCity.current = false }
-        if (inputState.current.value === '') { errMsgState.current = true; isFormValid = false } else { errMsgState.current = false }
-        if (inputZipCode.current.value === '' || regexZipcode.test(inputZipCode.current.value) === false) { errMsgZipCode.current = true; isFormValid = false } else { errMsgZipCode.current = false }
-        if (inputDepartment.current.value === '') { errMsgDepartment.current = true; isFormValid = false } else { errMsgDepartment.current = false }*/
+        setErrorMsg(newErrors)
 
         return isFormValid
     }
@@ -132,19 +117,20 @@ export function Form() {
                 </legend>
 
                 <label htmlFor="first-name">First Name</label>
-                <input required ref={inputFirstName} type="text" id="first-name" value={formData.firstName} />
-                <p className='errorMsg'>{errorMsg.firstName}Invalid Firstname</p>
+                <input required ref={inputFirstName} type="text" id="first-name" value={formData.firstName} onChange={handleChange}
+                />
+                <p className='errorMsg'>{errorMsg.firstName}</p>
 
 
                 <label htmlFor="last-name">Last Name</label>
-                <input required ref={inputLastName} type="text" id="last-name" value={formData.lastName} />
-                <p className='errorMsg'>{errorMsg.lastName}Invalid Lastname</p>
+                <input required ref={inputLastName} type="text" id="last-name" value={formData.lastName} onChange={handleChange} />
+                <p className='errorMsg'>{errorMsg.lastName}</p>
 
-                <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' value={formData.birthDate} />
-                <p className='errorMsg'>{errorMsg.dateBirth}Invalid Date of Birth</p>
+                <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' value={formData.birthDate} onChange={handleChange} />
+                <p className='errorMsg'>{errorMsg.dateBirth}</p>
 
-                <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' value={formData.startDate} />
-                <p className='errorMsg'>{errorMsg.dateStart}Invalid Start Date</p>
+                <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' value={formData.startDate} onChange={handleChange} />
+                <p className='errorMsg'>{errorMsg.dateStart}</p>
             </fieldset>
 
 
@@ -152,25 +138,26 @@ export function Form() {
                 <legend>Address</legend>
 
                 <label htmlFor="street">Street</label>
-                <input required ref={inputStreet} id="street" type="text" value={formData.street} />
-                <p className='errorMsg'>{errorMsg.street}Invalid Street</p>
+                <input required ref={inputStreet} id="street" type="text" value={formData.street} onChange={handleChange} />
+                <p className='errorMsg'>{errorMsg.street}</p>
 
                 <label htmlFor="city">City</label>
                 <input required ref={inputCity} id="city" type="text" value={formData.city} />
-                <p className='errorMsg'>{errorMsg.city}Invalid City</p>
+                <p className='errorMsg'>{errorMsg.city}</p>
 
-                <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" value={formData.state} />
-                <p className='errorMsg'>{errorMsg.state}Select a state</p>
+                <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" value={formData.state} onChange={handleChange} />
+                <p className='errorMsg'>{errorMsg.state}</p>
 
                 <label htmlFor="zip-code">Zip Code</label>
-                <input required ref={inputZipCode} id="zip-code" type="number" value={formData.firstName} />
-                <p className='errorMsg'>{errorMsg.zipCode}Invalid Zip Code</p>
+                <input required ref={inputZipCode} id="zip-code" type="number" value={formData.zipCode} onChange={handleChange}
+                />
+                <p className='errorMsg'>{errorMsg.zipCode}</p>
 
             </fieldset>
-            <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" value={formData.department} />
-            <p className='errorMsg'>{errorMsg.department}Select a state</p>
+            <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" value={formData.department} onChange={handleChange} />
+            <p className='errorMsg'>{errorMsg.department}</p>
 
-            <button onClick={handleSubmit} >Add employee</button>
+            <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
     </>
 }
