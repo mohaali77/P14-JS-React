@@ -62,7 +62,8 @@ export function Form() {
         e.preventDefault()
 
         let isFormValid = true
-        const newErrors = { firstName: '', lastName: '', dateBirth: '', dateStart: '', street: '', city: '', zipCode: '', state: '' };
+
+        const newErrors = { firstName: '', lastName: '', dateBirth: '', dateStart: '', street: '', city: '', zipCode: '', state: '', department: '' };
 
         const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
         const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
@@ -70,7 +71,19 @@ export function Form() {
         const regexStreet = /^[a-zA-Z0-9\s',.-]{2,}$/;
         const regexZipcode = /^\d{5}(?:-\d{4})?$/;
 
-        if (inputFirstName.current.value === '' || regexFirstName.test(inputFirstName.current.value) === false) { errMsgFirst.current = true; isFormValid = false } else { errMsgFirst.current = false };
+        if (formData.firstName.trim() === '' || regexFirstName.test(formData.firstName.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.lastName.trim() === '' || regexLastName.test(formData.lastName.trim() === '') === false) { newErrors.lastName = "Invalid lastName"; isFormValid = false }
+        if (formData.dateBirth.trim() === '') { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.dateStart.trim() === '') { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.street.trim() === '' || regexFirstName.test(formData.street.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.city.trim() === '' || regexFirstName.test(formData.city.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.zipCode.trim() === '' || regexFirstName.test(formData.zipCode.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.department.trim() === '' || regexFirstName.test(formData.department.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+        if (formData.state.trim() === '' || regexFirstName.test(formData.state.trim() === '') === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
+
+
+
+
         if (inputLastName.current.value === '' || regexLastName.test(inputLastName.current.value) === false) { errMsgLast.current = true; isFormValid = false } else { errMsgLast.current = false }
         if (inputDateBirth.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgBirth.current = true; isFormValid = false } else { errMsgBirth.current = false }
         if (inputDateStart.current.value === '' || inputDateBirth.current.value > inputDateStart.current.value) { errMsgStart.current = true; isFormValid = false } else { errMsgStart.current = false }
