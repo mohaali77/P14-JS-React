@@ -1,6 +1,25 @@
 import './style/menu.css'
 
+
 export default function Menu({ className, name, id, forName, text, data, inputRef, onChange }) {
+
+    return <>
+        <label className={className} htmlFor={forName}>{text}</label>
+        <input required ref={inputRef} onChange={onChange} name={name} id={id} />
+        {//<li value="">Choose a {id}</li>
+        }
+        <ul>
+            {data.map((data) => (
+                <li key={data.abbreviation} value={data.name}>
+                    {data.name}
+                </li>
+            ))}
+        </ul>
+    </>
+}
+
+
+/*export default function Menu({ className, name, id, forName, text, data, inputRef, onChange }) {
 
     return <>
         <label className={className} htmlFor={forName}>{text}</label>
@@ -13,4 +32,4 @@ export default function Menu({ className, name, id, forName, text, data, inputRe
             ))}
         </select>
     </>
-}
+}*/
