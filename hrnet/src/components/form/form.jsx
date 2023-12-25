@@ -37,7 +37,18 @@ export function Form() {
         firstName: '',
         lastName: '',
         dateBirth: '',
-        dateState: '',
+        dateStart: '',
+        street: '',
+        city: '',
+        zipCode: '',
+        state: '',
+        department: ''
+    });
+    const [errorMsg, setErrorMsg] = useState({
+        firstName: '',
+        lastName: '',
+        dateBirth: '',
+        dateStart: '',
         street: '',
         city: '',
         zipCode: '',
@@ -51,6 +62,7 @@ export function Form() {
         e.preventDefault()
 
         let isFormValid = true
+        const newErrors = { firstName: '', lastName: '', dateBirth: '', dateStart: '', street: '', city: '', zipCode: '', state: '' };
 
         const regexFirstName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
         const regexLastName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']{2,}$/;
@@ -108,18 +120,18 @@ export function Form() {
 
                 <label htmlFor="first-name">First Name</label>
                 <input required ref={inputFirstName} type="text" id="first-name" value={formData.firstName} />
-                {errMsgFirst.current ? <p className='errorMsg'>Invalid Firstname</p> : null}
+                <p className='errorMsg'>{errorMsg.firstName}Invalid Firstname</p>
 
 
                 <label htmlFor="last-name">Last Name</label>
                 <input required ref={inputLastName} type="text" id="last-name" value={formData.lastName} />
-                {errMsgLast.current ? <p className='errorMsg'>Invalid Lastname</p> : null}
+                <p className='errorMsg'>{errorMsg.lastName}Invalid Lastname</p>
 
                 <DatePicker inputRef={inputDateBirth} onInputChange={handleInputChange} labelText='Date of Birth' id='date-of-birth' value={formData.birthDate} />
-                {errMsgBirth.current ? <p className='errorMsg'>Invalid Date of Birth</p> : null}
+                <p className='errorMsg'>{errorMsg.dateBirth}Invalid Date of Birth</p>
 
                 <DatePicker inputRef={inputDateStart} onInputChange={handleInputChange} labelText='Start Date' id='start-date' value={formData.startDate} />
-                {errMsgStart.current ? <p className='errorMsg'>Invalid Start Date</p> : null}
+                <p className='errorMsg'>{errorMsg.dateStart}Invalid Start Date</p>
             </fieldset>
 
 
@@ -128,22 +140,22 @@ export function Form() {
 
                 <label htmlFor="street">Street</label>
                 <input required ref={inputStreet} id="street" type="text" value={formData.street} />
-                {errMsgStreet.current ? <p className='errorMsg'>Invalid Street</p> : null}
+                <p className='errorMsg'>{errorMsg.street}Invalid Street</p>
 
                 <label htmlFor="city">City</label>
                 <input required ref={inputCity} id="city" type="text" value={formData.city} />
-                {errMsgCity.current ? <p className='errorMsg'>Invalid City</p> : null}
+                <p className='errorMsg'>{errorMsg.city}Invalid City</p>
 
                 <Menu inputRef={inputState} onInputChange={handleInputChange} data={dataStates} text='State' className='label-state' htmlFor='state' name='state' id="state" value={formData.state} />
-                {errMsgState.current ? <p className='errorMsg'>Select a state</p> : null}
+                <p className='errorMsg'>{errorMsg.state}Select a state</p>
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input required ref={inputZipCode} id="zip-code" type="number" value={formData.firstName} />
-                {errMsgZipCode.current ? <p className='errorMsg'>Invalid Zip Code</p> : null}
+                <p className='errorMsg'>{errorMsg.zipCode}Invalid Zip Code</p>
 
             </fieldset>
             <Menu inputRef={inputDepartment} onInputChange={handleInputChange} data={dataDepartments} text='Department' className='label-department' htmlFor='department' name='department' id="department" value={formData.department} />
-            {errMsgDepartment.current ? <p className='errorMsg'>Select a state</p> : null}
+            <p className='errorMsg'>{errorMsg.department}Select a state</p>
 
             <button onClick={handleSubmit} >Add employee</button>
         </form >
