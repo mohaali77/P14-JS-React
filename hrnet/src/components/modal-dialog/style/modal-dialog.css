@@ -1,1 +1,8 @@
-/*# sourceMappingURL=modal-dialog.css.map */
+.container-modal {
+  background-color: black;
+  position: absolute;
+  opacity: 0.5;
+}
+.container-modal .modal {
+  background-color: red;
+}/*# sourceMappingURL=modal-dialog.css.map */
