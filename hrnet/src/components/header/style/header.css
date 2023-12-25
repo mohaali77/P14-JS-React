@@ -3,6 +3,7 @@ header {
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
 }
 header img {
   width: 50px;
