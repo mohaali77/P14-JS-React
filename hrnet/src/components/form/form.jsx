@@ -139,6 +139,11 @@ export function Form() {
         console.log(formData.state);
     };
 
+    const handleChangeMenu = (name, value) => {
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+        console.log(formData.state);
+    };
+
     return <>
         <form onSubmit={handleSubmit} id="create-employee">
             <h2>Create Employee</h2>
@@ -212,12 +217,13 @@ export function Form() {
 
                 <Menu
                     inputRef={inputState}
-                    data={dataStates} text='State'
-                    className='label-state'
+                    data={dataStates}
+                    text='State'
                     name='state'
                     value={formData.state}
-                    onChange={handleChange} />
-                <p className='errorMsg'>{errorMsg.state}</p>
+                    onChange={handleChange}//{handleChangeMenu}
+                    errorMsg={errorMsg.state}
+                />
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input
@@ -235,13 +241,10 @@ export function Form() {
                 inputRef={inputDepartment}
                 data={dataDepartments}
                 text='Department'
-                className='label-department'
-                htmlFor='department'
                 name='department'
-                id="department"
                 value={formData.department}
-                onChange={handleChange} />
-            <p className='errorMsg'>{errorMsg.department}</p>
+                onChange={handleChange}//{handleChangeMenu}
+                errorMsg={errorMsg.department} />
 
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
