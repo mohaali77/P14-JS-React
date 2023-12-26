@@ -84,6 +84,8 @@ export function Form() {
 
         setErrorMsg(newErrors)
 
+        console.log(formData.state);
+
         return isFormValid
     }
 
@@ -134,6 +136,7 @@ export function Form() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
+        console.log(formData.state);
     };
 
     return <>
@@ -210,9 +213,8 @@ export function Form() {
                 <Menu
                     inputRef={inputState}
                     data={dataStates} text='State'
-                    className='label-state' htmlFor='state'
+                    className='label-state'
                     name='state'
-                    id="state"
                     value={formData.state}
                     onChange={handleChange} />
                 <p className='errorMsg'>{errorMsg.state}</p>
