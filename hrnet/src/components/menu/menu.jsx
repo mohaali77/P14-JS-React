@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import './style/menu.css'
 
 
-export default function Menu({ className, name, text, data, inputRef, onChange }) {
+/*export default function Menu({ name, text, data, inputRef, onChange, errorMsg }) {
 
     const listRef = useRef()
+    const errorRef = useRef()
 
     const chooseList = (e) => {
         console.log(e.target.textContent);
@@ -24,27 +25,37 @@ export default function Menu({ className, name, text, data, inputRef, onChange }
             if (e.target !== inputRef.current && !listRef.current.classList.contains('mask')) {
                 listRef.current.classList.toggle('mask')
             }
+
+            if (errorRef.current.textContent === 'Invalid ' + text) {
+                listRef.current.classList.add('error-' + name)
+                listRef.current.classList.remove('list-' + name)
+
+            } else if (errorRef.current.textContent === '') {
+                listRef.current.classList.add('list-' + name)
+                listRef.current.classList.remove('error-' + name)
+            }
         })
 
     }, [])
 
     return <>
-        <label className={className} htmlFor={name}>{text}</label>
+        <label className={'label-' + name} htmlFor={name}>{text}</label>
         <input type='text' required ref={inputRef} onChange={onChange} name={name} id={name} />
         {//<li value="">Choose a {id}</li>
         }
-        <ul ref={listRef} className={"mask list-" + name}  >
+        <ul ref={listRef} className={" mask list-" + name}  >
             {data.map((data) => (
                 <li onClick={chooseList} key={data.abbreviation} value={data.name}>
                     {data.name}
                 </li>
             ))}
         </ul>
+        <p ref={errorRef} className='errorMsg'>{errorMsg}</p>
     </>
-}
+}*/
 
 
-/*export default function Menu({ className, name, id, forName, text, data, inputRef, onChange }) {
+export default function Menu({ className, name, id, forName, text, data, inputRef, onChange }) {
 
     return <>
         <label className={className} htmlFor={forName}>{text}</label>
@@ -57,4 +68,4 @@ export default function Menu({ className, name, text, data, inputRef, onChange }
             ))}
         </select>
     </>
-}*/
+}
