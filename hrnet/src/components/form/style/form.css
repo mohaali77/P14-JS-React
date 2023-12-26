@@ -8,6 +8,7 @@ form {
   justify-content: center;
   align-items: center;
   width: 450px;
+  position: relative;
 }
 form fieldset {
   display: flex;
@@ -22,6 +23,7 @@ form h2 {
 form label {
   margin-top: 6px;
   margin-bottom: 6px;
+  margin-left: 1px;
 }
 form select {
   height: 21.33px;
