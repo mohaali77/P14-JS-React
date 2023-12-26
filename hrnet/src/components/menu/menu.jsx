@@ -5,10 +5,10 @@ export default function Menu({ className, name, id, forName, text, data, inputRe
 
     return <>
         <label className={className} htmlFor={forName}>{text}</label>
-        <input required ref={inputRef} onChange={onChange} name={name} id={id} />
+        <input type='text' required ref={inputRef} onChange={onChange} name={name} id={id} />
         {//<li value="">Choose a {id}</li>
         }
-        <ul>
+        <ul className={"list-" + name}  >
             {data.map((data) => (
                 <li key={data.abbreviation} value={data.name}>
                     {data.name}
