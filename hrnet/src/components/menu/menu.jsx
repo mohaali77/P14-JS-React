@@ -59,18 +59,6 @@ export default function Menu({ errorMsg, name, text, data, inputRef, onChange })
 
     const errorRef = useRef()
 
-    useEffect(() => {
-        const element = errorRef.current;
-        const rect = element.getBoundingClientRect();
-
-        console.log('Position par rapport à la fenêtre :', rect);
-        console.log('Position par rapport à la page :', {
-            top: rect.top + window.scrollY,
-            left: rect.left + window.scrollX,
-        });
-    }, []);
-
-
     return <>
         <label className={name} htmlFor={name}>{text}</label>
         <select required ref={inputRef} onChange={onChange} name={name} id={name}>
