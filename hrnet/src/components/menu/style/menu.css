@@ -1,3 +1,23 @@
+select {
+  outline: none;
+}
+select option {
+  color: #687f12;
+  font-size: 13px;
+}
+select option:hover {
+  background-color: lightblue;
+}
+select::-webkit-scrollbar {
+  width: 15px;
+}
+select::-webkit-scrollbar-thumb {
+  background-color: #819e19;
+}
+select::-webkit-scrollbar-track {
+  background-color: lightgray;
+}
+
 input:focus {
   outline: none;
 }
