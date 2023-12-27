@@ -10,9 +10,35 @@
     z-index: 1;
     padding: 20px;
     box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .modal {
-        background-color: red;
-        opacity: 1;
+        background-color: #fff;
+        width: 200px;
+        height: 70px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px #000;
+        position: relative;
+
+        p {
+            margin: 0px;
+            font-weight: bold;
+            color: #687f12;
+        }
+
+        .close-modal {
+            position: absolute;
+            width: 25px;
+            top: -8px;
+            right: -11px;
+            cursor: pointer;
+        }
+
     }
 }
