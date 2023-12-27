@@ -8,7 +8,7 @@ export function CreateEmployee() {
     return <>
         <section className="container">
             <Form />
-            {//<ModalDialog />
+            {<ModalDialog />
             }
             <Link to='/employee-list'>View Current Employees</Link>
         </section>
