@@ -141,10 +141,10 @@ export function Form() {
         console.log(formData.state);
     };
 
-    const handleChangeMenu = (name, value) => {
+    /*const handleChangeMenu = (name, value) => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
         console.log(formData.state);
-    };
+    }*/
 
     return <>
         <form onSubmit={handleSubmit} id="create-employee">
