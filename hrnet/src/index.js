@@ -13,8 +13,6 @@ root.render(
       <Background />
       <Header />
       <App />
-      {/*  </PersistGate >
-      </Provider >*/}
     </BrowserRouter>
   </React.StrictMode>
 );
