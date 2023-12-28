@@ -7,7 +7,6 @@ import { ModalDialog } from "../../components/modal-dialog/modal-dialog";
 
 export function Form() {
 
-    // const dispatch = useDispatch();
     const inputFirstName = useRef();
     const inputLastName = useRef();
     const inputDateBirth = useRef();
