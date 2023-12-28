@@ -3,8 +3,10 @@ import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
+import { ModalDialog } from "../../components/modal-dialog/modal-dialog";
+
 //import { useDispatch } from "react-redux";
-//import { create } from "../../redux/employeeSlice";
+
 
 export function Form() {
 
@@ -33,6 +35,8 @@ export function Form() {
         state: '',
         department: ''
     });
+    const [showModal, setShowModal] = useState(false);
+
 
     useEffect(() => {
         // Vérifie si des données existent déjà dans le localStorage
@@ -126,6 +130,8 @@ export function Form() {
                 state: '',
                 department: ''
             });
+
+            setShowModal(true)
 
             console.log('Formulaire soumis avec succès !');
         } else {
@@ -248,5 +254,6 @@ export function Form() {
 
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
+        {showModal ? <ModalDialog /> : null}
     </>
 }
