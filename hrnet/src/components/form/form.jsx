@@ -5,9 +5,6 @@ import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
 import { ModalDialog } from "../../components/modal-dialog/modal-dialog";
 
-//import { useDispatch } from "react-redux";
-
-
 export function Form() {
 
     // const dispatch = useDispatch();
