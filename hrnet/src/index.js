@@ -5,7 +5,6 @@ import App from './App'
 import './App.css'
 import Header from './components/header/header';
 import Background from './components/background/background';
-//import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
