@@ -62,7 +62,7 @@ export function EmployeeList() {
 
             <h2>Current Employees</h2>
             <DataTable
-                onChangePage={handleFilter}
+                onChange={handleFilter}
                 columns={columns}
                 data={data}
                 fixedHeader
