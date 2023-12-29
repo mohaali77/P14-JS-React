@@ -1,1 +1,8 @@
-/*# sourceMappingURL=EmployeeList.css.map */
+.container-employee-list {
+  position: relative;
+  z-index: 0;
+}
+
+.searchBar {
+  z-index: 2;
+}/*# sourceMappingURL=EmployeeList.css.map */
