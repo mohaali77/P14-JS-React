@@ -49,8 +49,9 @@ export function EmployeeList() {
         },
     ];
 
-    const handleFilter = () => {
-        const dataFiltered = records.filter(row => {
+    const handleFilter = (e) => {
+        const dataFiltered = data.filter(row => {
+            return row.name.toLowerCase().includes(e.target.value.toLowerCase())
         })
         setData(dataFiltered)
     }
