@@ -88,7 +88,7 @@ export function EmployeeList() {
                     className="searchBar" type="text" /></div>
 
                 <h2>Current Employees</h2>
-                <div className="container-table">
+                <div className="container-table"  >
                     <DataTable
                         customStyles={customStyles}
                         columns={columns}
