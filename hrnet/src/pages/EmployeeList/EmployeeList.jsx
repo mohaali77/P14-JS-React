@@ -50,7 +50,9 @@ export function EmployeeList() {
     ];
 
     const handleFilter = () => {
-
+        const dataFiltered = records.filter(row => {
+        })
+        setData(dataFiltered)
     }
 
     return (
