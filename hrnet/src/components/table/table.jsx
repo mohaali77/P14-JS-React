@@ -1,8 +1,12 @@
+
 import './style/table.css'
 
 
-export function Table() {
-    return <>
+export const Table = () => {
 
+
+    return <>
     </>
-}
+};
+
+export default Table;
