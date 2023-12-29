@@ -1,5 +1,5 @@
 import './style/modal-dialog.css'
-import image from '../../images/téléchargement.png'
+import image from '../../images/modal.png'
 import { useEffect, useRef } from 'react'
 
 export function ModalDialog() {
