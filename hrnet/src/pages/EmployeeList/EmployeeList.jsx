@@ -49,7 +49,7 @@ export function EmployeeList() {
         },
     ];
 
-    const handleFilter = () )> {
+    const handleFilter = () => {
 
     }
 
