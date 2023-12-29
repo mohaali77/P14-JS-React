@@ -51,23 +51,25 @@ export function EmployeeList() {
 
     const handleFilter = (e) => {
         const dataFiltered = data.filter(row => {
-            return row.name.toLowerCase().includes(e.target.value.toLowerCase())
+            return row.firstName.toLowerCase().includes(e.target.value.toLowerCase())
         })
         setData(dataFiltered)
     }
 
     return (
         <>
-            <div><input className="searchBar" type="text" /></div>
+            <section class="container-employee-list">
+                <div><input onChange={handleFilter}
+                    className="searchBar" type="text" /></div>
 
-            <h2>Current Employees</h2>
-            <DataTable
-                onChange={handleFilter}
-                columns={columns}
-                data={data}
-                fixedHeader
-                pagination
-                s />
+                <h2>Current Employees</h2>
+                <DataTable
+                    columns={columns}
+                    data={data}
+                    fixedHeader
+                    pagination
+                    s />
+            </section>
             <Link to="/">Home</Link>
         </>
     );
