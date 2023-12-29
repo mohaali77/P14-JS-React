@@ -7,6 +7,24 @@ export function EmployeeList() {
 
     const [data, setData] = useState(JSON.parse(localStorage.getItem('employee')))
 
+    const customStyles = {
+        headRow: {
+            style: {
+                backgroundColor: 'lightblue', // Couleur de fond de la ligne d'en-tête
+            },
+        },
+        headCells: {
+            style: {
+                color: 'darkblue', // Couleur du texte de l'en-tête
+            },
+        },
+        cells: {
+            style: {
+                backgroundColor: 'lightcyan', // Couleur de fond des cellules
+            },
+        },
+    };
+
     const columns = [
         {
             name: 'First Name',
@@ -50,9 +68,16 @@ export function EmployeeList() {
     ];
 
     const handleFilter = (e) => {
-        const dataFiltered = data.filter(row => {
-            return row.firstName.toLowerCase().includes(e.target.value.toLowerCase())
-        })
+        const searchTerm = e.target.value.toLowerCase();
+
+        const dataFiltered = JSON.parse(localStorage.getItem('employee')).filter(row => {
+            // Utilise Object.values pour obtenir toutes les valeurs de l'objet row
+            const rowValues = Object.values(row);
+            console.log(rowValues);
+
+            // Utilise some pour vérifier si la valeur recherchée est incluse dans au moins l'une des valeurs
+            return rowValues.some(value => value.toLowerCase().includes(searchTerm));
+        });
         setData(dataFiltered)
     }
 
@@ -63,12 +88,15 @@ export function EmployeeList() {
                     className="searchBar" type="text" /></div>
 
                 <h2>Current Employees</h2>
-                <DataTable
-                    columns={columns}
-                    data={data}
-                    fixedHeader
-                    pagination
-                    s />
+                <div className="container-table">
+                    <DataTable
+                        customStyles={customStyles}
+                        columns={columns}
+                        data={data}
+                        fixedHeader
+                        pagination
+                        s />
+                </div>
             </section>
             <Link to="/">Home</Link>
         </>
