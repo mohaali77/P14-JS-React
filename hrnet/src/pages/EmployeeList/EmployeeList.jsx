@@ -49,10 +49,17 @@ export function EmployeeList() {
         },
     ];
 
+    const handleFilter = () )> {
+
+    }
+
     return (
         <>
+            <div><input className="searchBar" type="text" /></div>
+
             <h2>Current Employees</h2>
             <DataTable
+                onChangePage={handleFilter}
                 columns={columns}
                 data={data}
                 fixedHeader
