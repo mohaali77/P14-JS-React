@@ -47,9 +47,15 @@ export const Table = () => {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
     return <>
-        <table>
+        <table {...getTableProps()}>
             <thead>
-                <tr></tr>
+                {headerGroups.map((headerGroups) => (
+                    <tr {...headerGroups.getHeaderGroupProps()}>
+                        {headerGroups.headers.map((columns) => (
+                            <th {...columns.getHeaderProps()}>{columns.render('Header')}</th>
+                        ))}
+                    </tr>
+                ))}
             </thead>
             <tbody>
                 <tr>
