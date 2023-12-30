@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './style/EmployeeList.css'
+import Table from "../../components/table/table";
 
 
 export function EmployeeList() {
@@ -84,7 +85,9 @@ export function EmployeeList() {
         <>
             <section class="container-employee-list">
                 <h2>Current Employees</h2>
-                <div className="container-table"></div>
+                <div className="container-table">
+                    <Table />
+                </div>
             </section>
             <Link to="/">Home</Link>
         </>
