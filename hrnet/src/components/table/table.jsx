@@ -44,7 +44,7 @@ export const Table = () => {
         data: data
     })
 
-
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
     return <>
         <table>
