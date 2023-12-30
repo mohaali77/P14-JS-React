@@ -1,14 +1,13 @@
 
 import './style/table.css'
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTable } from 'react-table'
 import mockData from '../../data/mockData.json'
 
 
 export const Table = () => {
 
-    const [data, setData] = useState(mockData)
-    const columns = [
+    const COLUMNS = [
         {
             Header: 'First Name',
             accessor: 'firstName'
@@ -38,6 +37,9 @@ export const Table = () => {
             accessor: 'department'
         },
     ]
+
+    const columns = useMemo(() => COLUMNS, [])
+    const data = useMemo(() => mockData, [])
 
     const tableInstance = useTable({
         columns: columns,
