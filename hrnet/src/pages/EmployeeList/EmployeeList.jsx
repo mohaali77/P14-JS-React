@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 import './style/EmployeeList.css'
 import Table from "../../components/table/table";
 
-
 export function EmployeeList() {
-
-    //  const [data, setData] = useState(mockData)
 
     /*   const customStyles = {
            headRow: {
