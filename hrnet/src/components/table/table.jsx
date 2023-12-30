@@ -1,6 +1,7 @@
 
 import './style/table.css'
 import { useState } from 'react';
+import { useTable } from 'react-table'
 import mockData from '../../data/mockData.json'
 
 
