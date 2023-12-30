@@ -39,7 +39,24 @@ export const Table = () => {
         },
     ]
 
+    const tableInstance = useTable({
+        columns: columns,
+        data: data
+    })
+
+
+
     return <>
+        <table>
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </>
 };
 
