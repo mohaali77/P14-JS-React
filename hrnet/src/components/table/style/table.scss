@@ -10,18 +10,20 @@
         background-color: #04AA6D;
         color: white;
     }
-}
 
-#customers td,
-#customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    td,
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr {
+        &:hover {
+            background-color: #ddd;
+        }
+    }
 }
 
 #customers tr:nth-child(even) {
     background-color: #f2f2f2;
-}
-
-#customers tr:hover {
-    background-color: #ddd;
 }
