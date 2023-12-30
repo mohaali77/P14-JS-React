@@ -84,6 +84,7 @@ export function EmployeeList() {
     return (
         <>
             <section class="container-employee-list">
+                <input type="date" />
                 <div><input onChange={handleFilter}
                     className="searchBar" type="text" /></div>
 
