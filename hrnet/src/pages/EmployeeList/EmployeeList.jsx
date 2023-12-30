@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import './style/EmployeeList.css'
 import { useState } from 'react';
 import DataTable from 'react-data-table-component'
+import mockData from '../../data/mockData.json'
+
+console.log(mockData);
 
 export function EmployeeList() {
 
-    const [data, setData] = useState(JSON.parse(localStorage.getItem('employee')))
+    const [data, setData] = useState(mockData)
 
     const customStyles = {
         headRow: {
@@ -28,11 +31,11 @@ export function EmployeeList() {
     const columns = [
         {
             name: 'First Name',
-            selector: row => row.firstName,
+            selector: row => row.first_name,
             sortable: true
         },
         {
-            name: 'Last Name', selector: row => row.lastName,
+            name: 'Last Name', selector: row => row.last_name,
             sortable: true
         },
         {
@@ -70,7 +73,7 @@ export function EmployeeList() {
     const handleFilter = (e) => {
         const searchTerm = e.target.value.toLowerCase();
 
-        const dataFiltered = JSON.parse(localStorage.getItem('employee')).filter(row => {
+        const dataFiltered = data.filter(row => {
             // Utilise Object.values pour obtenir toutes les valeurs de l'objet row
             const rowValues = Object.values(row);
             console.log(rowValues);
