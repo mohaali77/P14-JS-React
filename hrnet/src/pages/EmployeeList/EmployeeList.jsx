@@ -4,8 +4,6 @@ import { useState } from 'react';
 import DataTable from 'react-data-table-component'
 import mockData from '../../data/mockData.json'
 
-console.log(mockData);
-
 export function EmployeeList() {
 
     const [data, setData] = useState(mockData)
