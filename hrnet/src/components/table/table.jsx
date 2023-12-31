@@ -49,13 +49,16 @@ export const Table = () => {
     const { pageIndex } = state
 
     return <>
+        <span>Search :{' '}
+            <input type="text"
+                value={filter || ''}
+                onChange={e => setFilter(e.target.value)} /></span>
         <table {...getTableProps()}>
             <thead>
                 {headerGroups.map((headerGroups) => (
                     <tr {...headerGroups.getHeaderGroupProps()}>
                         {headerGroups.headers.map((columns) => (
                             <th {...columns.getHeaderProps(columns.getSortByToggleProps())}>{columns.render('Header')}
-                                {columns.render('Header')}
                                 <span>{columns.isSorted ? (columns.isSortedDesc ? '1' : "2") : ''}</span>
                             </th>
                         ))}
