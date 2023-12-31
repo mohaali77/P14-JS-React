@@ -41,10 +41,12 @@ export const Table = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => mockData, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, state, prepareRow } = useTable({
         columns: columns,
         data: data
     }, useSortBy, usePagination)
+
+    const { pageIndex } = state
 
     return <>
         <table {...getTableProps()}>
@@ -77,8 +79,9 @@ export const Table = () => {
             </tbody>
         </table>
         <div>
-            <button onClick={() => previousPage()}>Previous</button>
-            <button onClick={() => previousPage()}>Next</button >
+            <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
+            <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
         </div >
     </>
 };
