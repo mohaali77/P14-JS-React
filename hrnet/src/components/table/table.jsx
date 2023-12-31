@@ -1,7 +1,7 @@
 
 import './style/table.css'
 import { useState, useMemo } from 'react';
-import { useTable, useSortBy, usePagination, UseGlobalFilter, useGlobalFilter } from 'react-table'
+import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table'
 import mockData from '../../data/mockData.json'
 
 
@@ -41,19 +41,18 @@ export const Table = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => mockData, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, statePage, stateFilter setGlobalFilter, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, setPageSize, state, setGlobalFilter, prepareRow } = useTable({
         columns: columns,
         data: data
-    }, useSortBy, usePagination, useGlobalFilter)
+    }, useGlobalFilter, useSortBy, usePagination)
 
-    const { pageIndex } = statePage
-    const { globalFilter } = stateFilter
+    const { pageIndex, pageSize, globalFilter } = state
 
     return <>
         <span>Search :{' '}
             <input type="text"
-                value={filter || ''}
-                onChange={e => setFilter(e.target.value)} /></span>
+                value={globalFilter || ''}
+                onChange={e => setGlobalFilter(e.target.value)} /></span>
         <table {...getTableProps()}>
             <thead>
                 {headerGroups.map((headerGroups) => (
@@ -86,6 +85,7 @@ export const Table = () => {
             <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
             <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
             <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
+            <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} ></select>
         </div >
     </>
 };
