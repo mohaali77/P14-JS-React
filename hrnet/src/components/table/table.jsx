@@ -41,10 +41,10 @@ export const Table = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => mockData, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow } = useTable({
         columns: columns,
         data: data
-    }, useSortBy)
+    }, useSortBy, usePagination)
 
     return <>
         <table {...getTableProps()}>
@@ -61,7 +61,7 @@ export const Table = () => {
                 ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-                {rows.map((row) => {
+                {page.map((row) => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
