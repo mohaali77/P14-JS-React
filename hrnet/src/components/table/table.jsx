@@ -1,7 +1,7 @@
 
 import './style/table.css'
 import { useState, useMemo } from 'react';
-import { useTable, useSortBy, usePagination } from 'react-table'
+import { useTable, useSortBy, usePagination, UseGlobalFilter, useGlobalFilter } from 'react-table'
 import mockData from '../../data/mockData.json'
 
 
@@ -41,10 +41,10 @@ export const Table = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => mockData, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, state, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, state, setGlobalFilter, prepareRow } = useTable({
         columns: columns,
         data: data
-    }, useSortBy, usePagination)
+    }, useSortBy, usePagination, useGlobalFilter)
 
     const { pageIndex } = state
 
