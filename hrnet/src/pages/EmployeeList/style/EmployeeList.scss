@@ -1,6 +1,11 @@
+h2 {
+    text-align: center;
+}
+
 .container-employee-list {
     position: relative;
     z-index: 0;
+    margin: 0px 30px;
 
     input {
         outline: none;
