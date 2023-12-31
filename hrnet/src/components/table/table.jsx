@@ -41,12 +41,13 @@ export const Table = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => mockData, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, state, setGlobalFilter, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, statePage, stateFilter setGlobalFilter, prepareRow } = useTable({
         columns: columns,
         data: data
     }, useSortBy, usePagination, useGlobalFilter)
 
-    const { pageIndex } = state
+    const { pageIndex } = statePage
+    const { globalFilter } = stateFilter
 
     return <>
         <span>Search :{' '}
