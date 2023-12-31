@@ -76,6 +76,10 @@ export const Table = () => {
                 </tr>
             </tbody>
         </table>
+        <div>
+            <button onClick={() => previousPage()}>Previous</button>
+            <button onClick={() => previousPage()}>Next</button >
+        </div >
     </>
 };
 
