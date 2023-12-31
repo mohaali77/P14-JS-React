@@ -80,7 +80,7 @@ export function EmployeeList() {
 
     return (
         <>
-            <section class="container-employee-list">
+            <section className="container-employee-list">
                 <h2>Current Employees</h2>
                 <div className="container-table">
                     <Table />
