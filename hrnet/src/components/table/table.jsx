@@ -49,10 +49,18 @@ export const Table = () => {
     const { pageIndex, pageSize, globalFilter } = state
 
     return <>
-        <span>Search :{' '}
-            <input type="text"
-                value={globalFilter || ''}
-                onChange={e => setGlobalFilter(e.target.value)} /></span>
+        <div>
+            <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
+                <option key={pageSize} value={pageSize}>
+                    Show {' ' + pageSize}
+                </option>
+            ))}</select>
+            <span>Search :{' '}
+                <input type="text"
+                    value={globalFilter || ''}
+                    onChange={e => setGlobalFilter(e.target.value)} />
+            </span>
+        </div>
         <table {...getTableProps()}>
             <thead>
                 {headerGroups.map((headerGroups) => (
@@ -85,11 +93,6 @@ export const Table = () => {
             <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
             <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
             <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
-            <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
-                <option key={pageSize} value={pageSize}>
-                    Show {' ' + pageSize}
-                </option>
-            ))}</select>
         </div >
     </>
 };
