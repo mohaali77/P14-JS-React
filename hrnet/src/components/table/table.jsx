@@ -7,6 +7,8 @@ import mockData from '../../data/mockData.json'
 
 export const Table = () => {
 
+    const [data, setData] = useState(JSON.parse(localStorage.getItem('employee')))
+
     const COLUMNS = [
         {
             Header: 'First Name',
@@ -39,7 +41,6 @@ export const Table = () => {
     ]
 
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => mockData, [])
 
     const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, setPageSize, state, setGlobalFilter, prepareRow } = useTable({
         columns: columns,
@@ -49,7 +50,7 @@ export const Table = () => {
     const { pageIndex, pageSize, globalFilter } = state
 
     return <>
-        <div>
+        <div className='pageSize_search'>
             <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
                 <option key={pageSize} value={pageSize}>
                     Show {' ' + pageSize}
@@ -67,7 +68,7 @@ export const Table = () => {
                     <tr {...headerGroups.getHeaderGroupProps()}>
                         {headerGroups.headers.map((columns) => (
                             <th {...columns.getHeaderProps(columns.getSortByToggleProps())}>{columns.render('Header')}
-                                <span>{columns.isSorted ? (columns.isSortedDesc ? '1' : "2") : ''}</span>
+                                <span>{' '}{columns.isSorted ? (columns.isSortedDesc ? <i className="fa-solid fa-sort-up"></i> : <i class="fa-solid fa-sort-down"></i>) : ''}</span>
                             </th>
                         ))}
                     </tr>
@@ -84,15 +85,14 @@ export const Table = () => {
                         </tr>
                     )
                 })}
-                <tr>
-                    <td></td>
-                </tr>
             </tbody>
         </table>
-        <div>
+        <div className='pageNumber_buttons'>
             <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
-            <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-            <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
+            <div className='buttons'>
+                <button className="disabled-button" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+                <button className="disabled-button" onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
+            </div>
         </div >
     </>
 };
