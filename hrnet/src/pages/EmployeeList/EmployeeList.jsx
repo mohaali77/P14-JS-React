@@ -85,8 +85,8 @@ export function EmployeeList() {
                 <div className="container-table">
                     <Table />
                 </div>
+                <Link to="/">Home</Link>
             </section>
-            <Link to="/">Home</Link>
         </>
     );
 
