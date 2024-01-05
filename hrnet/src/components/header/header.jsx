@@ -1,6 +1,7 @@
 import logo from '../../images/logo.png'
 import './style/header.css'
 
+//fonction qui gère le composant Header
 export default function Header() {
     return <>
         <header >
