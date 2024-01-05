@@ -20,6 +20,9 @@ git clone https://github.com/mohaali77/P14-JS-React
 
 ## Dépendances utilisés
 
-React
-React-Router
-React-Table
+1. React : 18.2.0
+2. React-dom : 18.2.0
+3. React-router-dom : 6.21.0
+4. React-scripts : 5.0.1
+5. React-table : 7.8.0
+6. Node : 20.9.0
