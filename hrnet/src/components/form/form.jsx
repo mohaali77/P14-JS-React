@@ -3,7 +3,7 @@ import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
-import { ModalDialog } from "../../components/modal-dialog/modal-dialog";
+import ModalComponent from 'mohaali-react-modal-component'
 
 export function Form() {
 
@@ -17,9 +17,8 @@ export function Form() {
     const inputZipCode = useRef();
     const inputDepartment = useRef();
 
+    const [modalOpen, setModalOpen] = useState(false);
     const [employeeArray, setEmployeeArray] = useState([]);
-    const [dataStates, setDataStates] = useState(statesArray);
-    const [dataDepartments, setDataDepartments] = useState(departmentsArray);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -31,22 +30,17 @@ export function Form() {
         state: '',
         department: ''
     });
-    const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
-        // Vérifie si des données existent déjà dans le localStorage
         const existingData = JSON.parse(localStorage.getItem('employee'));
 
-        // Si les données existent, mettez à jour l'état employeeArray
         if (existingData) {
             setEmployeeArray(existingData);
         } else {
-            // Si le localStorage est vide ou null, initialisez-le avec un tableau vide
             localStorage.setItem('employee', JSON.stringify([]));
         }
 
-        console.log(employeeArray);
     }, [])
 
     const [errorMsg, setErrorMsg] = useState({
@@ -93,7 +87,7 @@ export function Form() {
         e.preventDefault();
 
         if (validateForm()) {
-            // Créez un objet avec les informations du formulaire
+            setModalOpen(true);
             const formDataObject = {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
@@ -106,15 +100,12 @@ export function Form() {
                 department: formData.department
             };
 
-            // Mettez à jour le tableau existant
             setEmployeeArray((prevArray) => {
                 const updatedArray = [...prevArray, formDataObject];
-                // Enregistrez le tableau mis à jour dans le localStorage
                 localStorage.setItem('employee', JSON.stringify(updatedArray));
                 return updatedArray;
             });
 
-            // Réinitialisez le formulaire après la sauvegarde
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -126,8 +117,6 @@ export function Form() {
                 state: '',
                 department: ''
             });
-
-            setShowModal(true)
 
             console.log('Formulaire soumis avec succès !');
         } else {
@@ -219,7 +208,7 @@ export function Form() {
 
                 <Menu
                     inputRef={inputState}
-                    data={dataStates}
+                    data={statesArray}
                     text='State'
                     name='state'
                     value={formData.state}
@@ -241,7 +230,7 @@ export function Form() {
             </fieldset>
             <Menu
                 inputRef={inputDepartment}
-                data={dataDepartments}
+                data={departmentsArray}
                 text='Department'
                 name='department'
                 value={formData.department}
@@ -250,6 +239,10 @@ export function Form() {
 
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
-        {showModal ? <ModalDialog /> : null}
+        <ModalComponent
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            modalContent={'Employee created!'} />
+
     </>
 }
