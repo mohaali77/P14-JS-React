@@ -7,6 +7,7 @@ import ModalComponent from 'mohaali-react-modal-component'
 
 export function Form() {
 
+    //Refs
     const inputFirstName = useRef();
     const inputLastName = useRef();
     const inputDateBirth = useRef();
@@ -17,6 +18,7 @@ export function Form() {
     const inputZipCode = useRef();
     const inputDepartment = useRef();
 
+    //States
     const [modalOpen, setModalOpen] = useState(false);
     const [employeeArray, setEmployeeArray] = useState([]);
     const [formData, setFormData] = useState({
@@ -30,19 +32,6 @@ export function Form() {
         state: '',
         department: ''
     });
-
-
-    useEffect(() => {
-        const existingData = JSON.parse(localStorage.getItem('employee'));
-
-        if (existingData) {
-            setEmployeeArray(existingData);
-        } else {
-            localStorage.setItem('employee', JSON.stringify([]));
-        }
-
-    }, [])
-
     const [errorMsg, setErrorMsg] = useState({
         firstName: '',
         lastName: '',
@@ -55,6 +44,22 @@ export function Form() {
         department: ''
     });
 
+
+    useEffect(() => {
+
+        const existingData = JSON.parse(localStorage.getItem('employee'));
+
+        //Si le localStorage existe, alors on ajoute le tableau dans le state employeeArray, 
+        //sinon, on définit le localStorage avec un tableau vide
+        if (existingData) {
+            setEmployeeArray(existingData);
+        } else {
+            localStorage.setItem('employee', JSON.stringify([]));
+        }
+
+    }, [])
+
+    //fonction qui permet de vérifier les données du formulaire 
     const validateForm = (e) => {
         let isFormValid = true
 
@@ -66,6 +71,7 @@ export function Form() {
         const regexStreet = /^[a-zA-Z0-9\s',.-]{2,}$/;
         const regexZipcode = /^\d{5}(?:-\d{4})?$/;
 
+        //si tableau les champs sont vides, ou regex incorrect, on modifie le message d'erreur correspondant, et on définit isFormValid à false
         if (formData.firstName.trim() === '' || regexFirstName.test(formData.firstName) === false) { newErrors.firstName = "Invalid Firstname"; isFormValid = false }
         if (formData.lastName.trim() === '' || regexLastName.test(formData.lastName) === false) { newErrors.lastName = "Invalid lastName"; isFormValid = false }
         if (formData.dateBirth.trim() === '') { newErrors.dateBirth = "Invalid Date of Birth"; isFormValid = false }
@@ -76,16 +82,18 @@ export function Form() {
         if (formData.department.trim() === '') { newErrors.department = "Invalid Department"; isFormValid = false }
         if (formData.state.trim() === '') { newErrors.state = "Invalid State"; isFormValid = false }
 
+        //on set les message d'erreur avec le nouveau tableau. 
         setErrorMsg(newErrors)
 
-        console.log(formData.state);
-
+        //on retourne isFormValid pour définir le boleen de la fonction
         return isFormValid
     }
 
+    //fonction pour soumettre formulaire
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        //si la fonction validateForm est true, alors on créer un objet qui récupère toute les données du formulaire
         if (validateForm()) {
             setModalOpen(true);
             const formDataObject = {
@@ -100,12 +108,14 @@ export function Form() {
                 department: formData.department
             };
 
+            //On met à jour le localStorage avec les nouvelles données récupérées
             setEmployeeArray((prevArray) => {
                 const updatedArray = [...prevArray, formDataObject];
                 localStorage.setItem('employee', JSON.stringify(updatedArray));
                 return updatedArray;
             });
 
+            //une fois le formulaire soumis, on reinitialise les valeurs du formulaire
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -124,6 +134,7 @@ export function Form() {
         }
     };
 
+    //fonction permettant de récupérer les nouvelle valeurs insérer lors d'un changement dans un input
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -239,6 +250,7 @@ export function Form() {
 
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
+
         <ModalComponent
             isOpen={modalOpen}
             onClose={() => setModalOpen(false)}
