@@ -2,8 +2,6 @@
 import './style/table.css'
 import { useState, useMemo } from 'react';
 import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table'
-import mockData from '../../data/mockData.json'
-
 
 export const Table = () => {
 
