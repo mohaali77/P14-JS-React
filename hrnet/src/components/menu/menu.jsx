@@ -54,6 +54,7 @@ import './style/menu.css'
     </>
 }*/
 
+//fonction qui gère le composant Menu
 
 export default function Menu({ errorMsg, name, text, data, inputRef, onChange }) {
 
