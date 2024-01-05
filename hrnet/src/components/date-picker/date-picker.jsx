@@ -1,5 +1,6 @@
 import './style/date-picker.css'
 
+//fonction qui gère le composant DatePicker
 export function DatePicker({ id, labelText, inputRef, onChange, name }) {
 
     return <>
