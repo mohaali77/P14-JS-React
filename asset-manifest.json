@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mohaali77/P14-JS-React.git/static/css/main.49369450.css",
-    "main.js": "/mohaali77/P14-JS-React.git/static/js/main.d9ada763.js",
+    "main.js": "/mohaali77/P14-JS-React.git/static/js/main.47f5c9eb.js",
     "static/media/logo.png": "/mohaali77/P14-JS-React.git/static/media/logo.3b92745f30060832e620.png",
     "index.html": "/mohaali77/P14-JS-React.git/index.html",
     "main.49369450.css.map": "/mohaali77/P14-JS-React.git/static/css/main.49369450.css.map",
-    "main.d9ada763.js.map": "/mohaali77/P14-JS-React.git/static/js/main.d9ada763.js.map"
+    "main.47f5c9eb.js.map": "/mohaali77/P14-JS-React.git/static/js/main.47f5c9eb.js.map"
   },
   "entrypoints": [
     "static/css/main.49369450.css",
-    "static/js/main.d9ada763.js"
+    "static/js/main.47f5c9eb.js"
   ]
 }
