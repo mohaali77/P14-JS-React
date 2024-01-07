@@ -1,0 +1,89 @@
+form {
+    background-color: #687f12;
+    padding: 15px 15px;
+    border-radius: 10px;
+    color: #ffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    position: relative;
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: 0px 5px;
+    }
+
+    h2 {
+        text-align: center;
+        width: 100%;
+    }
+
+    label {
+        margin-top: 6px;
+        margin-bottom: 6px;
+        margin-left: 1px;
+    }
+
+    select {
+        height: 21.33px;
+    }
+
+    .errorMsg {
+        font-size: 13px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        color: #000;
+    }
+
+    #department {
+        margin-top: 6px;
+
+    }
+
+    .label-department {
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    button {
+        color: #687f12;
+        font-weight: bold;
+        border-radius: 19px;
+        border: transparent;
+        padding: 9px;
+        font-size: 16px;
+        box-shadow: 1px 2px 2px -1px black;
+        width: 100%;
+        margin: 10px 150px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.025);
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    form {
+        width: 300px;
+
+        fieldset {
+            width: 75%;
+            margin-bottom: 5px;
+        }
+
+        button {
+            margin: 10px 70px;
+        }
+
+        #department {
+            width: 217px;
+            margin-bottom: 5px;
+        }
+    }
+}
