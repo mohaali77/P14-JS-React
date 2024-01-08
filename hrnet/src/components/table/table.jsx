@@ -1,11 +1,20 @@
 import './style/table.css'
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table'
+import mockData from '../../data/mockData.json'
 
 export const Table = () => {
 
-    const [data, setData] = useState(JSON.parse(localStorage.getItem('employee')))
+    const [data, setData] = useState([]);
 
+    useEffect(() => {
+        const fetchData = () => {
+            const storedData = JSON.parse(localStorage.getItem('employee'));
+            setData(storedData || []); // Assurez-vous que storedData n'est pas null
+        };
+
+        fetchData();
+    }, []);
     const COLUMNS = [
         {
             Header: 'First Name',
