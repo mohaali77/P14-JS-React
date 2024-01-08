@@ -10,7 +10,7 @@ export const Table = () => {
     useEffect(() => {
         const fetchData = () => {
             const storedData = JSON.parse(localStorage.getItem('employee'));
-            setData(storedData || []); // Assurez-vous que storedData n'est pas null
+            setData(storedData || []);
         };
 
         fetchData();
