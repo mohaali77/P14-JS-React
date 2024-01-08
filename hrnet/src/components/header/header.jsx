@@ -6,7 +6,7 @@ export default function Header() {
     return <>
         <header >
             <img src={logo} alt="Logo de l'entreprise Wealth Health" />
-            <h1>HRNett</h1>
+            <h1>HRNet</h1>
         </header>
     </>
 }
