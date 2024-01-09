@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import './style/EmployeeList.css'
+//import loadable from '@loadable/component';
+//const Table = loadable(() => import('../../components/table/table'));
 import Table from "../../components/table/table";
+
 
 export function EmployeeList() {
 
