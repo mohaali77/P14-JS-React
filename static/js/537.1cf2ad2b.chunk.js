@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhrnet=self.webpackChunkhrnet||[]).push([[537],{537:(e,n,t)=>{t.r(n),t.d(n,{default:()=>l});var a=t(184);function l(e){let{id:n,labelText:t,inputRef:l,onChange:r,name:h}=e;return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("label",{id:n,htmlFor:n,children:t}),(0,a.jsx)("input",{name:h,ref:l,onChange:r,type:"date",id:n,placeholder:"A"})]})}}}]);
-//# sourceMappingURL=537.1cf2ad2b.chunk.js.map

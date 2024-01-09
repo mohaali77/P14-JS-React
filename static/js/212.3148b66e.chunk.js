@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhrnet=self.webpackChunkhrnet||[]).push([[212],{114:(e,t,r)=>{r.r(t),r.d(t,{default:()=>a});const s=r.p+"static/media/logo.c710bb9ba83107b2810c.webp";var n=r(184);function a(){return(0,n.jsx)(n.Fragment,{children:(0,n.jsxs)("header",{children:[(0,n.jsx)("img",{src:s,alt:"Logo de l'entreprise Wealth Health"}),(0,n.jsx)("h1",{children:"HRNett"})]})})}}}]);
-//# sourceMappingURL=212.3148b66e.chunk.js.map
