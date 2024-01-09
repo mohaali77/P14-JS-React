@@ -1,7 +1,6 @@
 import './style/table.css'
 import { useState, useMemo, useEffect } from 'react';
 import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table'
-import mockData from '../../data/mockData.json'
 
 export const Table = () => {
 
@@ -15,6 +14,7 @@ export const Table = () => {
 
         fetchData();
     }, []);
+
     const COLUMNS = [
         {
             Header: 'First Name',
@@ -57,16 +57,17 @@ export const Table = () => {
 
     return <>
         <div className='pageSize_search'>
-            <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
+            <label htmlFor="page-size"></label>
+            <select id='page-size' value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
                 <option key={pageSize} value={pageSize}>
                     Show {' ' + pageSize}
                 </option>
             ))}</select>
-            <span>Search :{' '}
-                <input type="text"
+            <label htmlFor="search-bar">Search :{' '}
+                <input id='search-bar' type="text"
                     value={globalFilter || ''}
                     onChange={e => setGlobalFilter(e.target.value)} />
-            </span>
+            </label>
         </div>
         <table {...getTableProps()}>
             <thead>
