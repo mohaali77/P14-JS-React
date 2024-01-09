@@ -1,4 +1,4 @@
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.webp'
 import './style/header.css'
 
 //fonction qui gère le composant Header
