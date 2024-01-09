@@ -2,11 +2,14 @@ import './style/form.css'
 import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
-import { DatePicker } from '../date-picker/date-picker';
+import DatePicker from '../date-picker/date-picker';
 import ModalComponent from 'mohaali-react-modal-component'
 import { useNavigate } from "react-router-dom";
+//import loadable from '@loadable/component';
+//const Menu = loadable(() => import('../menu/menu'));
+//const DatePicker = loadable(() => import('../date-picker/date-picker'));
 
-export function Form() {
+export default function Form() {
 
     //Code pour faire fonctionner la bibliothèque 
     const [modalOpen, setModalOpen] = useState(false);
