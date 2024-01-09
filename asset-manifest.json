@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/P14-JS-React/static/css/main.1fa1ebd1.css",
-    "main.js": "/P14-JS-React/static/js/main.f4a19da6.js",
+    "main.js": "/P14-JS-React/static/js/main.80bec4ed.js",
     "static/css/212.411dd774.chunk.css": "/P14-JS-React/static/css/212.411dd774.chunk.css",
-    "static/js/212.32e9882f.chunk.js": "/P14-JS-React/static/js/212.32e9882f.chunk.js",
+    "static/js/212.3148b66e.chunk.js": "/P14-JS-React/static/js/212.3148b66e.chunk.js",
     "static/css/148.08cb9142.chunk.css": "/P14-JS-React/static/css/148.08cb9142.chunk.css",
     "static/js/148.446f4b81.chunk.js": "/P14-JS-React/static/js/148.446f4b81.chunk.js",
     "static/css/660.5fbc2a60.chunk.css": "/P14-JS-React/static/css/660.5fbc2a60.chunk.css",
@@ -13,12 +13,12 @@
     "static/css/537.31d6cfe0.chunk.css": "/P14-JS-React/static/css/537.31d6cfe0.chunk.css",
     "static/js/537.1cf2ad2b.chunk.js": "/P14-JS-React/static/js/537.1cf2ad2b.chunk.js",
     "static/js/358.f32f339c.chunk.js": "/P14-JS-React/static/js/358.f32f339c.chunk.js",
-    "static/media/logo.webp": "/P14-JS-React/static/media/logo.b15eeb8192b12df2d406.webp",
+    "static/media/logo.webp": "/P14-JS-React/static/media/logo.c710bb9ba83107b2810c.webp",
     "index.html": "/P14-JS-React/index.html",
     "main.1fa1ebd1.css.map": "/P14-JS-React/static/css/main.1fa1ebd1.css.map",
-    "main.f4a19da6.js.map": "/P14-JS-React/static/js/main.f4a19da6.js.map",
+    "main.80bec4ed.js.map": "/P14-JS-React/static/js/main.80bec4ed.js.map",
     "212.411dd774.chunk.css.map": "/P14-JS-React/static/css/212.411dd774.chunk.css.map",
-    "212.32e9882f.chunk.js.map": "/P14-JS-React/static/js/212.32e9882f.chunk.js.map",
+    "212.3148b66e.chunk.js.map": "/P14-JS-React/static/js/212.3148b66e.chunk.js.map",
     "148.08cb9142.chunk.css.map": "/P14-JS-React/static/css/148.08cb9142.chunk.css.map",
     "148.446f4b81.chunk.js.map": "/P14-JS-React/static/js/148.446f4b81.chunk.js.map",
     "660.5fbc2a60.chunk.css.map": "/P14-JS-React/static/css/660.5fbc2a60.chunk.css.map",
@@ -30,6 +30,6 @@
   },
   "entrypoints": [
     "static/css/main.1fa1ebd1.css",
-    "static/js/main.f4a19da6.js"
+    "static/js/main.80bec4ed.js"
   ]
 }
