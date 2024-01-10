@@ -25,7 +25,7 @@ git clone https://github.com/mohaali77/P14-JS-React
 3. React-router-dom : 6.21.0
 4. React-scripts : 5.0.1
 5. React-table : 7.8.0
-6. Node : 20.9.0
+6. Node : 20.9.0A
 
 # HRNET Project | English
 
