@@ -3,7 +3,9 @@
     justify-content: space-between;
     margin-bottom: 10px;
 
-    label {}
+    label:first-child {
+        display: contents;
+    }
 }
 
 .pageNumber_buttons {
