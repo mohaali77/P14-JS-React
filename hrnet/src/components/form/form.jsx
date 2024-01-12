@@ -5,9 +5,6 @@ import { useState, useRef, useEffect } from 'react';
 import DatePicker from '../date-picker/date-picker';
 import ModalComponent from 'mohaali-react-modal-component'
 import { useNavigate } from "react-router-dom";
-//import loadable from '@loadable/component';
-//const Menu = loadable(() => import('../menu/menu'));
-//const DatePicker = loadable(() => import('../date-picker/date-picker'));
 
 export default function Form() {
 
@@ -164,11 +161,6 @@ export default function Form() {
         console.log(formData.state);
     };
 
-    /*const handleChangeMenu = (name, value) => {
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-        console.log(formData.state);
-    }*/
-
     return <>
         <form onSubmit={handleSubmit} id="create-employee">
             <h2>Create Employee</h2>
@@ -246,7 +238,7 @@ export default function Form() {
                     text='State'
                     name='state'
                     value={formData.state}
-                    onChange={handleChange}//{handleChangeMenu}
+                    onChange={handleChange}
                     errorMsg={errorMsg.state}
                 />
 
@@ -268,7 +260,7 @@ export default function Form() {
                 text='Department'
                 name='department'
                 value={formData.department}
-                onChange={handleChange}//{handleChangeMenu}
+                onChange={handleChange}
                 errorMsg={errorMsg.department} />
 
             <button type='submit' onClick={validateForm} >Add employee</button>
