@@ -3,13 +3,17 @@ import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
 import { useState, useRef, useEffect } from 'react';
 import DatePicker from '../date-picker/date-picker';
-import ModalComponent from 'mohaali-react-modal-component'
-import { useNavigate } from "react-router-dom";
+
+/*Les lignes de code en commentaire servent à l'utilisation de la bibliothèque "mohaali-react-modal-component".
+Après installation de la bibliothèque, vous n'aurez qu'à décommenter ces lignes, pour la faire fonctionner  */
+
+/*import ModalComponent from 'mohaali-react-modal-component'
+import { useNavigate } from "react-router-dom";*/
 
 export default function Form() {
 
-    //Code pour faire fonctionner la bibliothèque 
-    const [modalOpen, setModalOpen] = useState(false);
+    //Code pour faire fonctionner la bibliothèque
+    /*const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
 
     const closeModal = () => {
@@ -17,7 +21,7 @@ export default function Form() {
         setTimeout(() => {
             navigate("/employee-list");
         }, 1000);
-    };
+    };*/
 
     //Refs
     const inputFirstName = useRef();
@@ -115,7 +119,7 @@ export default function Form() {
 
         //si la fonction validateForm est true, alors on créer un objet qui récupère toute les données du formulaire
         if (validateForm()) {
-            setModalOpen(true);
+            //setModalOpen(true);
             const formDataObject = {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
@@ -266,9 +270,9 @@ export default function Form() {
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
 
-        <ModalComponent
+        {/*<ModalComponent
             isOpen={modalOpen}
             onClose={closeModal}
-            modalContent={'Employee created!'} />
+            modalContent={'Employee created!'} />*/}
     </>
 }
