@@ -5,14 +5,17 @@ import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table
 export const Table = () => {
 
     const [data, setData] = useState([]);
+    const [entries, setEntries] = useState('');
 
     useEffect(() => {
+
         const fetchData = () => {
             const storedData = JSON.parse(localStorage.getItem('employee'));
             setData(storedData || []);
         };
 
         fetchData();
+
     }, []);
 
     const COLUMNS = [
@@ -55,14 +58,25 @@ export const Table = () => {
 
     const { pageIndex, pageSize, globalFilter } = state
 
+    const firstEntry = pageIndex * pageSize + 1;
+    const lastEntry = Math.min((pageIndex + 1) * pageSize, data.length);
+
+    useEffect(() => {
+        setEntries(`Showing ${firstEntry} to ${lastEntry} entries of ${data.length} entries`);
+    }, [firstEntry, lastEntry, data.length]);
+
     return <>
         <div className='pageSize_search'>
             <label htmlFor="page-size"></label>
-            <select id='page-size' value={pageSize} onChange={e => setPageSize(Number(e.target.value))} >{[10, 25, 50].map(pageSize => (
-                <option key={pageSize} value={pageSize}>
-                    Show {' ' + pageSize}
-                </option>
-            ))}</select>
+            <select
+                id='page-size'
+                value={pageSize}
+                onChange={e => setPageSize(Number(e.target.value))
+                } >{[10, 25, 50].map(pageSize => (
+                    <option key={pageSize} value={pageSize}>
+                        Show {' ' + pageSize}
+                    </option>
+                ))}</select>
             <label htmlFor="search-bar">Search :{' '}
                 <input id='search-bar' type="text"
                     value={globalFilter || ''}
@@ -94,14 +108,18 @@ export const Table = () => {
                 })}
             </tbody>
         </table>
-        <div className='pageNumber_buttons'>
-            <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
-            <div className='buttons'>
-                <button className="disabled-button" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                <button className="disabled-button" onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
-            </div>
-        </div >
+        <div>
+            <div className='showingEntries'>{entries}</div>
+            <div className='pageNumber_buttons'>
+                <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
+                <div className='buttons'>
+                    <button className="disabled-button" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+                    <button className="disabled-button" onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
+                </div>
+            </div >
+        </div>
     </>
 };
 
 export default Table;
+
