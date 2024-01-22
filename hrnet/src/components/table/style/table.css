@@ -7,15 +7,20 @@
   display: contents;
 }
 
+.entries_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
 .pageNumber_buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 }
 .pageNumber_buttons .buttons {
   margin-left: 15px;
-  width: 120px;
   display: flex;
   justify-content: space-between;
 }
