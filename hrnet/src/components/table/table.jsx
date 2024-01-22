@@ -51,7 +51,7 @@ export const Table = () => {
 
     const columns = useMemo(() => COLUMNS, [])
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, setPageSize, state, setGlobalFilter, prepareRow } = useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, canPreviousPage, canNextPage, pageOptions, gotoPage, pageCount, setPageSize, state, setGlobalFilter, prepareRow } = useTable({
         columns: columns,
         data: data
     }, useGlobalFilter, useSortBy, usePagination)
@@ -108,13 +108,21 @@ export const Table = () => {
                 })}
             </tbody>
         </table>
-        <div>
+        <div className='entries_pagination'>
             <div className='showingEntries'>{entries}</div>
             <div className='pageNumber_buttons'>
                 <span>Page{' '}<strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}</span>
+                <span>
+                    | Go to page : {" "}<input type='number' defaultValue={pageIndex + 1} onChange={e => {
+                        const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                        gotoPage(pageNumber)
+                    }} style={{ width: '50px' }} />
+                </span>
                 <div className='buttons'>
+                    <button className="disabled-button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
                     <button className="disabled-button" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
                     <button className="disabled-button" onClick={() => nextPage()} disabled={!canNextPage}>Next</button >
+                    <button className="disabled-button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
                 </div>
             </div >
         </div>
