@@ -100,7 +100,6 @@ export default function Form() {
 
         // Calcul de la différence d'âge
         const ageDifference = Math.abs(new Date(formData.dateStart).getFullYear() - new Date(formData.dateBirth).getFullYear());
-        console.log(ageDifference);
 
         if (ageDifference < 16) {
             newErrors.dateBirth = "Invalid Date of Birth"; isFormValid = false
@@ -154,7 +153,7 @@ export default function Form() {
 
             console.log('Formulaire soumis avec succès !');
         } else {
-            console.log('no');
+            console.log('Echec de la soumission du formulaire !');
         }
     };
 
@@ -162,7 +161,6 @@ export default function Form() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
-        console.log(formData.state);
     };
 
     return <>
