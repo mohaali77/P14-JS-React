@@ -1,19 +1,15 @@
 import './style/form.css'
 import Menu from "../menu/menu";
 import { statesArray, departmentsArray } from '../../data/data';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from '../date-picker/date-picker';
-
-/*Les lignes de code en commentaire servent à l'utilisation de la bibliothèque "mohaali-react-modal-component".
-Après installation de la bibliothèque, vous n'aurez qu'à décommenter ces lignes, pour la faire fonctionner  */
-
-/*import ModalComponent from 'mohaali-react-modal-component'
-import { useNavigate } from "react-router-dom";*/
+import ModalComponent from 'mohaali-react-modal-component'
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
 
     //Code pour faire fonctionner la bibliothèque
-    /*const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
 
     const closeModal = () => {
@@ -21,18 +17,7 @@ export default function Form() {
         setTimeout(() => {
             navigate("/employee-list");
         }, 1000);
-    };*/
-
-    //Refs
-    const inputFirstName = useRef();
-    const inputLastName = useRef();
-    const inputDateBirth = useRef();
-    const inputDateStart = useRef();
-    const inputStreet = useRef();
-    const inputCity = useRef();
-    const inputState = useRef();
-    const inputZipCode = useRef();
-    const inputDepartment = useRef();
+    };
 
     //States
     const [employeeArray, setEmployeeArray] = useState([]);
@@ -118,7 +103,7 @@ export default function Form() {
 
         //si la fonction validateForm est true, alors on créer un objet qui récupère toute les données du formulaire
         if (validateForm()) {
-            //setModalOpen(true);
+            setModalOpen(true);
             const formDataObject = {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
@@ -174,7 +159,6 @@ export default function Form() {
                     type="text"
                     id="first-name"
                     name="firstName"
-                    ref={inputFirstName}
                     value={formData.firstName}
                     onChange={handleChange}
                 />
@@ -183,7 +167,6 @@ export default function Form() {
 
                 <label htmlFor="last-name">Last Name</label>
                 <input
-                    ref={inputLastName}
                     type="text"
                     id="last-name"
                     name="lastName"
@@ -192,7 +175,6 @@ export default function Form() {
                 <p className='errorMsg'>{errorMsg.lastName}</p>
 
                 <DatePicker
-                    inputRef={inputDateBirth}
                     labelText='Date of Birth'
                     id='date-of-birth'
                     name='dateBirth'
@@ -201,7 +183,6 @@ export default function Form() {
                 <p className='errorMsg'>{errorMsg.dateBirth}</p>
 
                 <DatePicker
-                    inputRef={inputDateStart}
                     labelText='Start Date'
                     id='start-date'
                     name='dateStart'
@@ -216,7 +197,6 @@ export default function Form() {
 
                 <label htmlFor="street">Street</label>
                 <input
-                    ref={inputStreet}
                     id="street"
                     name='street'
                     type="text"
@@ -226,7 +206,6 @@ export default function Form() {
 
                 <label htmlFor="city">City</label>
                 <input
-                    ref={inputCity}
                     id="city"
                     name='city'
                     type="text"
@@ -235,7 +214,6 @@ export default function Form() {
                 <p className='errorMsg'>{errorMsg.city}</p>
 
                 <Menu
-                    inputRef={inputState}
                     data={statesArray}
                     text='State'
                     name='state'
@@ -246,7 +224,6 @@ export default function Form() {
 
                 <label htmlFor="zip-code">Zip Code</label>
                 <input
-                    ref={inputZipCode}
                     id="zip-code"
                     name='zipCode'
                     type="number"
@@ -257,7 +234,6 @@ export default function Form() {
 
             </fieldset>
             <Menu
-                inputRef={inputDepartment}
                 data={departmentsArray}
                 text='Department'
                 name='department'
@@ -268,9 +244,9 @@ export default function Form() {
             <button type='submit' onClick={validateForm} >Add employee</button>
         </form >
 
-        {/*<ModalComponent
+        {<ModalComponent
             isOpen={modalOpen}
             onClose={closeModal}
-            modalContent={'Employee created!'} />*/}
+            modalContent={'Employee created!'} />}
     </>
 }
